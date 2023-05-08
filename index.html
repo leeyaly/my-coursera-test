@@ -6,9 +6,60 @@
 </head>
 <div>
 <h3>一、基本配置</h3>
-<h3>二、克隆远程仓库</h3>
-<h3>三、创建分支</h3>
-<h3>四、提交修改</h3>
+<ol>
+	<li>配置用户名：<code>git config --global user.name "yourname"</code></li>
+	<li>配置邮箱：<code>git config --global user.email "youremail"</code></li>
+	<li>查看配置信息：<code>git config --list</code></li>
+	<li>仅查看用户名：<code>git config user.name</code></li>
+</ol>
+
+<h3>二、GitHub仓库配置</h3>
+<ol>
+	<li>创建SSH KEY：打开Git Bash，执行<code>ssh-keygen -t rsa C "youremail@example.com"</code>，直接回车，在../user/.ssh目录id_rsa和id_rsa.pub文件，即SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥。</li>
+	<li>登录github，点Settings——>SSH and GPG keys——>New SSH key，填入id_rsa.pub文件内容。</li>
+	<li>添加github的SSH秘钥指纹到本地： 将github的ssh密钥条目添加到../.ssh/known_hosts文件中，避免手动验证github主机。</li>
+	<li>有关github的SSH秘钥指纹可通过github官网查询。</li>
+
+</ol>
+<h3>三、远程仓库</h3>
+<ol>
+	<li>克隆远程仓库到本地：<code>git clone git@github.com:leeyaly/my-coursera-test.git</code> 注意当前路径不要有中文。</li>
+	<li>注意使用SSH地址，这样可以避免HTTPS登录验证，直接使用上述配置的SSH KEY完成验证。</li>
+	<li>关联本地仓库到远程；<code>git remote add origin git@github.com:leeyaly/my-coursera-test.git</code> origin为给远程仓库取得名字。</li>
+	<li>解除本地与远程仓库的绑定关系：<code>git remote rm origin</code> origin为给远程仓库取得名字。</li>
+	<li>在本地创建和远程分支对应的分支：<code>git checkout -b branch-name origin/branch-name</code>本地和远程分支的名称最好一致.</li>
+	<li>建立本地分支和远程分支的关联，<code>git branch --set-upstream branch-name origin/branch-name</code></li>
+</ol>
+<h3>四、查看远程仓库信息</h3>
+<ol>
+	<li>执行：<code>git remote</code>可查看远程仓库信息。<code>git remote -v</code>可查看详细信息。</li>
+</ol>
+
+<h4>五、仓库操作</h4>
+<ol><li>状态查看</li>
+	<ol>
+		<li>当前仓库状态：<code>git status</code> 可查看当前是否有修改尚未提交。</li>
+	</ol>
+	<li>分支管理</li>
+	<ol>
+		<li>创建分支：<code>git branch dev</code> 此处创建名为dev的分支。</li>
+		<li>切换分支：<code>git checkout dev</code>或<code>git switch dev</code></li>
+		<li>创建并切换分支：<code>git checkout -b dev</code>或<code>git switch -c dev</code></li>
+		<li>分支列表：<code>git beanch --list</code> 其中*开头的为当前所选择的分支。</li>
+		<li>分支状合并态图：<code>git log --graph</code></li>
+		<li>合并分支：<code>git merge -dev</code> 此处为已经切换到main分支上，然后合并dev分支。</li>
+		<li>删除分支：<code>git branch -d dev</code> 如果分支还未合并就被删除，需执行：<code>git branch -D dev</code></li>
+	</ol>
+	<li>文件操作</li>
+	<ol>
+		<li>新增文件：新增文件后，通过命令<code>git add filename</code> 此操作将文件放入暂存区。</li>
+		<li>提交文件：<code>git commit -m "修改说明"</code> 此操作将修改提交到当前分支。</li>
+		<li>远程同步：<code>git pull origin branch-name</code> 推送到远程仓库前，先同步最新的远程仓库到本地。</li>
+		<li>推送到远程：<code>git push origin branch-name</code> 如果是推送新增的分支到远程，需加<code>-u</code>参数，即<code>git push -u origin branch-name</code></li>
+		<li>查看提交日志：<code>git log --pretty=oneline</code> </li>
+	</ol>
+</ol>
+
 
 </div>
 
