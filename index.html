@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
+	<meta name="author" content="lee">
+	<meta name="copyright" content="版权所有。">
+	<meta name="description" content="这是一个练习demo">
+	<meta name="keywords" content="git,github,html">
 	<title>Git常用操作</title>
 </head>
 <div>
@@ -11,6 +15,8 @@
 	<li>配置邮箱：<code>git config --global user.email "youremail"</code></li>
 	<li>查看配置信息：<code>git config --list</code></li>
 	<li>仅查看用户名：<code>git config user.name</code></li>
+	<li>输出配置：<code>git config --global color.ui true</code> 让Git显示颜色，会让命令输出看起来更醒目。</li>
+	<li>安全配置：在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。所有配置文件可以直接在线浏览：https://github.com/github/gitignore 把.gitignore也提交到Git，就完成了。当然检验.gitignore的标准是git status命令是不是说working directory clean。如果某些文件无法提交，可能是.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用<code>git check-ignore</code>命令检查：<code> git check-ignore -v App.class</code></li>
 </ol>
 
 <h3>二、GitHub仓库配置</h3>
@@ -36,9 +42,13 @@
 </ol>
 
 <h4>五、仓库操作</h4>
-<ol><li>状态查看</li>
+<ol><li>工作区管理</li>
 	<ol>
-		<li>当前仓库状态：<code>git status</code> 可查看当前是否有修改尚未提交。</li>
+		<li>当前工作区状态：<code>git status</code> 可查看当前是否有修改尚未提交。</li>
+		<li>放弃工作区修改：<code>git checkout --filename</code> 未add时，撤销后，工作区恢复到和版本库一样的状态;已add，未commit时，恢复到add之后的状态.</li> 
+		<li>隐藏当前工作现场：<code>git stash</code> 提示：Saved working directory and index state WIP on dev: f52c633 add merge，f52c633为隐藏工作现场的id，隐藏后可以新建分支修复bug，修复合并后，再恢复工作现场。</li>
+		<li>查看隐藏工作现场列表：<code>git stash list</code>，返回：stash@{0}: WIP on dev: f52c633 add merge</li>
+		<li>恢复工作现场：方法1：<code>git stash apply stash@{0}</code> 恢复后，stash内容并不删除，需要用<code>git stash drop stash@{0}</code>来删除;方法2：<code>git stash pop</code> 恢复的同时删除stash内容。主意stash@{0}为最新的stash。</li>
 	</ol>
 	<li>分支管理</li>
 	<ol>
@@ -47,8 +57,11 @@
 		<li>创建并切换分支：<code>git checkout -b dev</code>或<code>git switch -c dev</code></li>
 		<li>分支列表：<code>git beanch --list</code> 其中*开头的为当前所选择的分支。</li>
 		<li>分支状合并态图：<code>git log --graph</code></li>
+		<li>提交历史整理：提交远程时，如果远程比本地更超前，就先pull远程到本地，然后git rebase，再push到远程。rebase操作可以把本地未push的分叉提交历史整理成直线；目的是在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</li>
 		<li>合并分支：<code>git merge -dev</code> 此处为已经切换到main分支上，然后合并dev分支。</li>
 		<li>删除分支：<code>git branch -d dev</code> 如果分支还未合并就被删除，需执行：<code>git branch -D dev</code></li>
+		<li>版本回退：根据序数回退：<code>git reset --hard HEAD~1</code> 根据commit id回退：<code>git reset --hard id</code></li>
+		<li>复制提交：复制id为4c805e2的commit的提交到当前分支：<code>git cherry-pick 4c805e2</code> 可用于将修复bug的提交快速合并到当前分支。</li>
 	</ol>
 	<li>文件操作</li>
 	<ol>
@@ -57,7 +70,19 @@
 		<li>远程同步：<code>git pull origin branch-name</code> 推送到远程仓库前，先同步最新的远程仓库到本地。</li>
 		<li>推送到远程：<code>git push origin branch-name</code> 如果是推送新增的分支到远程，需加<code>-u</code>参数，即<code>git push -u origin branch-name</code></li>
 		<li>查看提交日志：<code>git log --pretty=oneline</code> </li>
+		<li>删除文件：<code>git rm filename</code> 也可以先手动删除，再执行add命令。</li>
 	</ol>
+	<li>标签管理</li>
+	<ol>
+		<li>添加标签：切换到需要打标签的分支上，执行：<code>git tag v1.0</code> 还可以通过-a参数，创建带有说明的标签：<code>git tag -a v0.1 -m "version 0.1 released" 1094adb</code> -a指定标签名称，-m指定说明文字，1094adb为commit的id</li>
+		<li>查看标签：<code>git tag</code> 标签不是按时间顺序列出，而是按字母排序; 查看标签具体信息：<code>git show tagname</code></li>
+		<li>查看commit记录：<code> git log --pretty=oneline --abbrev-commit</code></li>
+		<li>标签规则：标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签；因此要给之前的某个commit加标签，找到commit的id再添加即可，如<code>git tag v0.9 f52c633</code></li>
+		<li>删除本地标签：<code>git tag -d v0.1</code> 创建的标签都只存储在本地，不会自动推送到远程。打错的标签可以在本地安全删除。</li>
+		<li>推送标签：推送某个标签到远程，<code>git push origin tagname</code> 一次性推送全部尚未推送到远程的本地标签，<code>git push origin --tags</code></li>
+		<li>删除远程标签：先从本地删除，<code>git tag -d v0.9</code> 再从远程删除，<code>git push origin :refs/tags/v0.9</code></li>
+	</ol>
+	<li>标签管理</li>
 </ol>
 
 
