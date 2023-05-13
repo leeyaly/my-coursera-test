@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter1-CSS选择器</title>
+        <meta name="keywords" content="CSS,选择器">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style>
+            ul {
+                color: red;
+            }
+            #id-selector {
+                color: red;
+            }
+            .calss-selector {
+                color: green;
+            }
+            div p {
+                color: chocolate;
+            }
+            #child-selector p {
+                font-style: italic;
+            }
+            #gruop-selector1, .gruop-selector2{
+                color: blueviolet;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h3>CSS选择器</h3>
+        <p>选中你想要的元素的方式，我们称之为“选择器”。选择器，说白了就是用一种方式把你想要的那个元素选中！只有把它选中了，你才可以为这个元素添加CSS样式。</p>
+
+        <p>CSS选择器非常多，但这本书是针对CSS初学者的，因此我们只会讲解最实用的五种选择器。</p>
+
+        <ul>
+            <li>元素选择器</li>
+            <li>id选择器</li>
+            <li>class选择器</li>
+            <li>后代选择器</li>
+            <li>群组选择器</li>
+        </ul>
+
+        <h4>元素的ID和class</h4>
+        <p>id和class是元素最基本的两个属性。一般情况下，id和class都是用来选择元素，以便进行CSS操作或者JavaScript操作的。</p>
+        <p>id属性具有唯一性，也就是说在一个页面中相同的id只能出现一次。如果出现了多个相同的id，那么CSS或者JavaScript就无法识别这个id对应的是哪一个元素。</p>
+        <p>class，顾名思义，就是“类”。其思想跟C++、Java等编程语言的“类”相似。我们可以为同一个页面的相同元素或者不同元素设置相同的class，然后使得具有相同class的元素具有相同的CSS样式。</p>
+
+        <h4>元素选择器</h4>
+        <p>元素选择器，就是“选中”相同的元素，然后给相同的元素定义同一个CSS样式。比如选择p标签设置字体为红色，可以这样：</p>
+
+        <pre><code>
+            p {color:red}
+        </code></pre>
+
+        <h4>id选择器</h4>
+        <p>可以为元素设置一个id属性，然后针对设置了这个id的元素定义CSS样式，这就是id选择器。不过要注意一点，在同一个页面中，不允许出现两个相同的id。</p>
+        <p id="id-selector">对于id选择器，id名前面必须要加上前缀#，否则该选择器无法生效。在id名前面加上#，表示这是一个id选择器。语法：</p>
+        <pre><code>
+            #id-selector{color:red}
+        </code></pre>
+
+        <h4>class选择器</h4>
+        <p>class选择器，也就是“类选择器”。我们可以对“相同的元素”或者“不同的元素”定义相同的class属性，然后针对拥有同一个class的元素进行CSS样式操作。</p>
+        <p class="calss-selector">class名前面必须要加上前缀英文点号，否则该选择器无法生效。在类名前面加上。，表明这是一个class选择器。语法：</p>
+        <pre><code>
+            .calss-selector{color:green}
+        </code></pre>
+
+        <p>如果要为两个或多个元素定义相同的样式，建议使用class选择器，因为这样可以减少大量重复代码。</p>
+
+        <h4>后代选择器</h4>
+        <div id="child-selector">
+             <p>后代选择器，就是选择元素内部中所有的某一种元素，包括子元素和其他后代元素（如孙元素）。</p>
+             <p>父元素和后代元素必须要用空格隔开，从而表示选中某个元素内部的后代元素。</p>
+        </div>
+
+        <h4>群组选择器</h4>
+        <p id="gruop-selector1">群组选择器，指的是同时对几个选择器进行相同的操作。</p>
+        <p class="gruop-selector2">对于群组选择器，两个选择器之间必须要用英文逗号（,）隔开，不然群组选择器就无法生效。</p>
+
+    </body>
+</html>
