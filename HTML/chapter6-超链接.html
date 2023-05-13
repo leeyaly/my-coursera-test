@@ -1,0 +1,108 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <!--meta http-equiv="Content-Type" content="text/html;charset=utf-8"-->
+    <!--meta http-equiv="refresh" content="5;url=http://www.github.com"-->
+    <meta title="chapter6-超链接">
+    <meta name="keywords" content="超链接">
+    <meta name="description" content="html基础知识">
+    <meta name="author" content="le">
+    <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+<link rel="stylesheet" href="css/index.css">
+
+<style type="text/css">
+    table,tr,td{border: 1px solid silver;}
+</style>
+
+<script>
+    /*此处写JavaScript代码*/
+</script>
+
+</head>
+<html>
+<body>
+
+    <h3 id="title">超链接</h3>
+    <p>超链接，英文名是hyperlink。页面之间通常都是通过超链接来相互关联的。超链接能够让用户在各个独立的页面之间方便地跳转。</p>
+
+    <h4>标签</h4>
+    <p>使用a标签来实现超链接。</p>
+
+    <pre><code>&lt;a href=&quot;链接地址&quot;&gt;文本或图片&lt;/a&gt;</code></pre>
+
+    <p>href表示你想要跳转到那个页面的路径（也就是地址）。超链接的范围非常广，我们可以将文本设置为超链接，这个叫“文本超链接”。也可以将图片设置为超链接，这个叫“图片超链接”。比如<a href="https://github.com" target="_blank">点击这里</a>可以跳转到github主页。</p>
+    <p>点击下方图片也可以跳转到github主页。</p>
+    <a href="https://github.com" target="_blank"><img src="../HTML/images/clock.gif" alt="clock" width="155" height="155"></a>
+
+    <h4>target属性</h4>
+    <p>默认情况下，超链接都是在当前浏览器窗口打开新页面的。在HTML中，可以使用target属性来定义超链接打开窗口的方式。</p>
+    <pre><code>
+        &lt;a href=&quot;链接地址&quot; target=&quot;打开方式&quot;&gt;&lt;/a&gt;
+    </code></pre>
+    <p>a标签的target属性取值有四种:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>属性值</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>_self</td>
+                <td>默认值，在原来窗口打开链接</td>
+            </tr>
+            <tr>
+                <td>_blank</td>
+                <td>在新窗口打开链接</td>
+            </tr>
+            <tr>
+                <td>_parent</td>
+                <td>在父窗口打开链接</td>
+            </tr>
+            <tr>
+                <td>_top</td>
+                <td>在顶层窗口打开链接</td>
+            </tr>
+
+        </tbody>
+        
+    </table>
+
+    <h4>内部链接</h4>
+    <p>在HTML中，超链接有两种，一种是“外部链接”，另外一种是“内部链接”。外部链接指向的是“外部网站的页面”，而内部链接指向的是“自身网站的页面”。</p>
+    <p>比如下方列表可链接到其他几个章节上：</p>
+    <ul>
+        <li><a href="../HTML/chapter1-标签.html">chapter1-标签</a></li>
+        <li><a href="../HTML/chapter2-文本.html">chapter2-文本</a></li>
+        <li><a href="../HTML/chapter3-列表.html">chapter3-列表</a></li>
+        <li><a href="../HTML/chapter4-表格.html">chapter4-表格</a></li>
+        <li><a href="../HTML/chapter5-图片.html">chapter5-图片</a></li>
+    </ul>
+
+    <h4>锚点链接</h4>
+    <p>锚点链接其实是内部链接的一种，它链接地址（也就是href）指向的是当前页面的某个部分。所谓的锚点链接，简单来说，就是点击某一个超链接，然后它就会跳到“当前页面”的某一部分。</p>
+
+    <p>要实现锚点链接，需要定义两个内容：目标元素的id，a标签的href属性指向该id。</p>
+    <p>其中，id属性就是元素的名称，这个id名是随便起的（一般是英文）。不过在同一个页面中，id是唯一的，也就是说一个页面中不允许出现相同的id。</p>
+
+    <pre><code>
+        &lt;div&gt;
+            &lt;a href=&quot;#title&quot;&gt;标题&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;title&quot;&gt;
+            &lt;h6&gt;标题&lt;/h6&gt;
+        &lt;/div&gt;
+    </code></pre>
+
+    <p>比如下方文字链接到页面最上方的超链接标题处。</p>
+
+    <div>
+        <a href="#title">标题</a>
+    </div>
+ 
+</body>
+
+
+</html>

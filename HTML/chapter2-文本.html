@@ -1,0 +1,89 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <!--meta http-equiv="Content-Type" content="text/html;charset=utf-8"-->
+    <!--meta http-equiv="refresh" content="5;url=http://www.github.com"-->
+    <meta title="chapter2-文本">
+    <meta name="keywords" content="文本元素">
+    <meta name="description" content="html基础知识">
+    <meta name="author" content="le">
+    <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+<link rel="stylesheet" href="css/index.css">
+
+<style type="text/css">
+    /*此处写CSS样式文件*/
+</style>
+
+<script>
+    /*此处写JavaScript代码*/
+</script>
+
+</head>
+<html>
+<body>
+    <h3>静态网页绝大部分由以下4中元素组成：</h3>
+    <ol>
+        <li>文字</li>
+        <li>图片</li>
+        <li>超链接</li>
+        <li>音频和视频</li>
+    </ol>
+    <h3>常用的文本标签</h3>
+
+    <h4>标题标签</h4>
+    <p>标题标签从h1到h6，其中h1的重要性最高，h6重要性最低。一般一个页面只有一个h1标题，其他层级标题可以有多个。</p>
+
+    <h4>段落标签</h4>
+    <p>段落标签&lt;p&gt;&lt;/p&gt;用来显示一段文字；段落标签会自动换行，且段落之前有一定间距。</p>
+    <p>可使用&lt;br/&gt;标签进行<br/>换行。</p>
+
+    <h4>文本标签</h4>
+    <p>可使用文本标签对文字进行修饰，常见的文本标签有如下8种：</p>
+    <ol>
+        <li> <strong>粗体标签：</strong> &lt;strong&gt;&lt;/strong&gt;和&lt;b&gt;&lt;/b&gt;&nbsp;strong标签更具语义性，推荐使用。</li>
+        <li> <em>斜体标签：</em> &lt;i&gt;&lt;/i&gt;&nbsp;&lt;em&gt;&lt;/em&gt;&nbsp;&lt;cite&gt;&lt;/cite&gt;&nbsp;推荐使用语义更好的em标签。</li>
+        <li><sup>上标标签：</sup>&lt;sup&gt;&lt;/sup&gt;</li>
+        <li><sub>下标标签：</sub>&lt;sub&gt;&lt;/sub&gt;</li>
+        <li><s>中划线标签：</s>&lt;s&gt;&lt;/s&gt;&nbsp;一般用CSS实现，基本不用s标签实现。</li>
+        <li><u>下划线标签：</u>&lt;u&gt;&lt;/u&gt;&nbsp;一般用CSS实现，基本不用u标签实现。</li>
+        <li><big>大号字标签</big>和<small>小号字标签:</small>&lt;big&gt;&lt;/big&gt;&nbsp;和&nbsp;&lt;small&gt;&lt;/small&gt;&nbsp;可实现字体变大表小，一般用CSS实现，不使用此标签。</li>
+    </ol>
+
+    <h4>水平线标签</h4>
+    <p>&lt;hr&gt;&nbsp;可使用hr标签来实现一条水平线，比如下面这样：</p>
+    <hr>
+
+    <h4>div标签</h4>
+    <div>
+        <p>使用&lt;div&gt;&lt;/div&gt;标签来划分HTML结构，从而配合CSS来“整体”控制某一块的样式。同时div标签作为块元素，内部可以放入其他元素，支持“套娃”。</p>
+    </div>
+    
+    <h4>自闭合标签</h4>
+    <p>常见的自闭合标签有：&lt;br&gt;&lt;hr&gt;&lt;meta&gt;&lt;link&gt;&lt;img&gt;&lt;input&gt;</p>
+
+    <h4>块元素和行内元素</h4>
+    <p>在HTML中，根据元素的表现形式，一般可以分为两类（暂时不考虑inline-block）：块元素(block)和行内元素(inline)。</p>
+
+    <h5>块元素</h5>
+    <p>块元素的特点：</p>
+    <p>块元素独占一行，排斥其他元素（包括块元素和行内元素）与其位于同一行。</p>
+    <p>块元素内部可以容纳其他块元素和行内元素。</p>
+    <p>常见的块元素：h1-h6，p，div，hr，ol，ul。</p>
+
+    <h5>行内元素</h5>
+    <p>行内元素可以与其他行内元素位于同一行。</p>
+    <p>行内元素内部可以容纳其他行内元素，但不可以容纳块元素。</p>
+    <p>常见的行内元素：strong，em，a，span。</p>
+
+    <h4>特殊符号</h4>
+    <h5>空格</h5>
+    <p>HTML中，直接在代码中加入空格是无效的，需要使用&amp;nbsp;来实现。</p>
+
+    <h5>特殊符号</h5>
+    <p>在HTML中，如果想要显示一个特殊符号，也是需要通过输入代码来实现。这些特殊符号对应的代码，都是以&开头、并且以；（英文分号）结尾。</p>
+
+</body>
+
+
+</html>

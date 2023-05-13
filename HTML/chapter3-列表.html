@@ -1,0 +1,78 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <!--meta http-equiv="Content-Type" content="text/html;charset=utf-8"-->
+    <!--meta http-equiv="refresh" content="5;url=http://www.github.com"-->
+    <meta title="chapter3-列表">
+    <meta name="keywords" content="列表">
+    <meta name="description" content="html基础知识">
+    <meta name="author" content="le">
+    <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+<link rel="stylesheet" href="css/index.css">
+
+<style type="text/css">
+    /*此处写CSS样式文件*/
+</style>
+
+<script>
+    /*此处写JavaScript代码*/
+</script>
+
+</head>
+<html>
+<body>
+    <h3>列表</h3>
+    <p>在HTML中，列表共分为三种：有序列表、无序列表和定义列表。在有序列表中，列表项之间有先后顺序之分。在无序列表中，列表项之间是没有先后顺序之分的。而定义列表是一组带有特殊含义的列表，一个列表项中包含“条件”和“列表”两部分。</p>
+
+    <h4>有序列表</h4>
+    <p>有序列表从&lt;ol&gt;开始，到&lt;/ol&gt;结束。有序列表一般采用数字或字母作为顺序，默认是采用数字顺序。</p>
+    <pre><code>
+        &lt;ol&gt;
+            &lt;li&gt;列表项&lt;/li&gt;
+            &lt;li&gt;列表项&lt;/li&gt;
+            &lt;li&gt;列表项&lt;/li&gt;
+        &lt;/ol&gt;
+    </code></pre>
+    <p>ol标签和li标签是配合一起使用的，不可以单独使用，而且&lt;ol&gt;标签的子标签只能是li标签，不能是其他标签。</p>
+    <p>在HTML中，我们可以使用type属性来改变列表项符号。默认情况下，有序列表使用数字作为列表项符号。常用的type属性有1、A、a、i、Ⅰ。</p>
+
+    <ol type="I">
+        <li>列表项</li>
+        <li>列表项</li>
+        <li>列表项</li>
+    </ol>
+
+    <h4>无序列表</h4>
+    <p>无序列表的列表项是没有顺序的。默认情况下，无序列表的列表项符号是●，不过可以通过type属性来改变。常用的type属性有disc(实心圆)，circle(空心圆)，square(正方形)。</p>
+
+    <ul type="circle">
+        <li>橘子</li>
+        <li>苹果</li>
+        <li>香蕉</li>
+    </ul>
+
+    <h4>定义列表</h4>
+    <p>在HTML中，定义列表由两部分组成：名词和描述。</p>
+    <pre><code>
+        &lt;dl&gt;
+            &lt;dt&gt;名词&lt;/dt&gt;
+            &lt;dd&gt;描述&lt;/dd&gt;
+            ……
+        &lt;/dl&gt;
+    </code></pre>
+    <p>dl即definition list（定义列表），dt即definition term（定义名词），而dd即definition description（定义描述）。</p>
+
+    <dl>
+        <dt>dt，定义名词</dt>
+        <dd>dd，定义描述</dd>
+    </dl>
+
+    <h4>HTML语义化</h4>
+    <p>HTML的精髓就在于标签的语义。在HTML中，大部分标签都有它自身的语义。例如p标签，表示的是paragraph，标记的是一个段落；h1标签，表示header1，标记的是一个最高级标题……而div和span是无语义的标签，我们应该优先使用其他有语义的标签。</p>
+    <p>学习HTML并不是看自己学了多少标签，更重要的是在你需要的地方能否用到恰当的语义化标签。把标签用在对的地方，这才是学习HTML的目的所在。</p>
+
+</body>
+
+
+</html>

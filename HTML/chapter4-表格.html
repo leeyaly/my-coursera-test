@@ -1,0 +1,138 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <!--meta http-equiv="Content-Type" content="text/html;charset=utf-8"-->
+    <!--meta http-equiv="refresh" content="5;url=http://www.github.com"-->
+    <meta title="chapter4-表格">
+    <meta name="keywords" content="表格">
+    <meta name="description" content="html基础知识">
+    <meta name="author" content="le">
+    <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+<link rel="stylesheet" href="css/index.css">
+
+<style type="text/css">
+    table,tr,td{border: 1px solid silver;}
+</style>
+
+<script>
+    /*此处写JavaScript代码*/
+</script>
+
+</head>
+<html>
+<body>
+
+    <h3>表格</h3>
+    <p>在过去的Web 1.0时代，表格常用于网页布局。但是在Web 2.0中，这种方式已经被抛弃了，网页布局都是使用CSS来实现的（学了CSS就会知道）。但是这并不说明表格就一无是处了。表格在实际开发中是用得非常多的，因为使用表格可以更清晰地排列数据。</p>
+
+    <h4>基本结构</h4>
+    <p>在HTML中，一个表格一般会由以下三个部分组成。</p>
+    <p>表格：table标签，行：tr标签，单元格：td标签。语法如下：</p>
+    <pre><code>
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;单元格 1&lt;/td&gt;
+                &lt;td&gt;单元格 2&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;单元格 3&lt;/td&gt;
+                &lt;td&gt;单元格 4&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    </code></pre>
+
+    <p>效果如下：</p>
+    <table>
+        <tr>
+            <td>第1行第1个单元格</td>
+            <td>第1行第2个单元格</td>
+        </tr>
+        <tr>
+            <td>第2行第1个单元格</td>
+            <td>第2行第1个单元格</td>
+        </tr>
+    </table>
+    <p>说明：tr，指的是table row（表格行）。td，指的是table data cell（表格单元格）。</p>
+
+    <h4>完整结构</h4>
+    <p>一个表格的完整结构不仅仅只有table、tr、td这三个部分，还包括caption、th等。</p>
+
+    <table>
+        <caption>表格标题</caption>
+        <thead>
+            <tr>
+                <th>表头单元格1</th>
+                <th>表头单元格2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>cell-1</td>
+                <td>cell-2</td>
+            </tr>
+            <tr>
+                <td>cell-3</td>
+                <td>cell-4</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>foot-cell-1</td>
+                <td>foot-cell-2</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <p>thead、tbody和tfoot这三个标签也是表格中非常重要的标签，它从语义上区分了表头、表身和表脚，很多人容易忽略这三个标签。</p>
+    <p>此外，thead、tbody和tfoot除了使得代码更具有语义之外，还有另外一个重要作用：方便分块来控制表格的CSS样式。</p>
+
+    <h4>合并行列</h4>
+    <p>使用rowspan属性来合并行。所谓的合并行，指的是将“纵向的N个单元格”合并。</p>
+    <table>
+        <caption>行合并展示</caption>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>购买水果</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>苹果</td>
+            </tr>
+            <tr>
+                <td rowspan="2">李四</td>
+                <td>香蕉</td>
+            </tr>
+            <tr>
+                <td>葡萄</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>我们可以使用colspan属性来合并列。所谓的合并列，指的是将“横向的N个单元格”合并。</p>
+
+    <table>
+        <caption>列合并展示</caption>
+        <thead>
+            <tr>
+                <td>早班</td>
+                <td>晚班</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">上班</td>
+            </tr>
+            <tr>
+                <td>休息</td>
+                <td>上班</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+
+</html>

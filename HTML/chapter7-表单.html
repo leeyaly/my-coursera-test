@@ -1,0 +1,330 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <!--meta http-equiv="Content-Type" content="text/html;charset=utf-8"-->
+    <!--meta http-equiv="refresh" content="5;url=http://www.github.com"-->
+    <meta title="chapter7-表单">
+    <meta name="keywords" content="表单">
+    <meta name="description" content="html基础知识">
+    <meta name="author" content="le">
+    <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+<link rel="stylesheet" href="css/index.css">
+
+<style type="text/css">
+    table,tr,td{border: 1px solid silver;}
+</style>
+
+<script>
+    window.onload = function()
+    {
+        var oBtn = document.getElementsByName("buttonform");
+        oBtn[0].onclick = function()
+        {
+            alert("I ❤ HTML !")
+        }
+    }
+</script>
+
+</head>
+<html>
+<body>
+
+    <h3>表单</h3>
+    <p>在前面的章节中，我们学习了各种各样的标签。不过使用这些标签做出来的都是静态页面，没办法实现动态页面。如果想要做出一个动态页面，我们就需要借助表单来实现。</p>
+
+    <h4>表单简介</h4>
+    <p>表单是我们接触动态页面的第一步。其中表单最重要的作用就是：在浏览器端收集用户的信息，然后将数据提交给服务器来处理。</p>
+    <p>在HTML中，表单标签有五种：form、input、textarea、select和option。</p>
+    <p>从外观上来划分，表单可以分为以下八种。</p>
+    <ol>
+        <li>单行文本框</li>
+        <li>密码文本框</li>
+        <li>单选框</li>
+        <li>复选框</li>
+        <li>按钮</li>
+        <li>文件上传</li>
+        <li>多行文本框</li>
+        <li>下拉列表</li>
+    </ol>
+
+    <h4>form标签</h4>
+    <p>表单与表格，是两个完全不一样的概念，我们常说的表单，指的是文本框、按钮、单选框、复选框、下拉列表等的统称。语法如下：</p>
+    <pre><code>
+        &lt;form&gt;
+            //各种表单标签
+        &lt;/form&gt;
+    </code></pre>
+    <p>from效果：</p>
+    <form action="" name="myform" method="post">
+        <input type="text" value="单行文本框"><br>
+        <textarea name="" id="" cols="30" rows="5">多行文本框</textarea><br>
+        <select>
+            <option value="">HTML</option>
+            <option value="">CSS</option>
+            <option value="">JavaScript</option>
+        </select>
+    </form>
+
+    <p>input、textarea、select、option都是表单标签，必须放在form标签内部</p>
+
+    <table>
+        <caption>form常用属性如下：</caption>
+        <thead>
+            <tr>
+                <td>属性值</td>
+                <td>说明</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>name</td>
+                <td>表单名称</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>method</td>
+                <td>提交方式</td>
+            </tr>
+            <tr>
+                <td>action</td>
+                <td>提交地址</td>
+            </tr>
+            <tr>
+                <td>target</td>
+                <td>打开方式</td>
+            </tr>
+            <tr>
+                <td>enctype</td>
+                <td>编码方式</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>input标签</h4>
+    <p>input是自闭合标签，它是没有结束符号的。其中type属性取值如下：</p>
+    <table>
+        <thead>
+            <tr>
+                <td>属性值</td>
+                <td>说明</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>text</td>
+                <td>单行文本框</td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td>密码文本框</td>
+            </tr>
+            <tr>
+                <td>radio</td>
+                <td>单选框</td>
+            </tr>
+            <tr>
+                <td>checkbox</td>
+                <td>多选框</td>
+            </tr>
+            <tr>
+                <td>button或submit或reset</td>
+                <td>按钮</td>
+            </tr>
+            <tr>
+                <td>file</td>
+                <td>文件上传</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <p>效果如下：</p>
+    <form action="post" name="demoform">
+        <ul>
+            <li>text-单行文本框：<input type="text" name="" id="text" value="单行文本框" size="20" maxlength="10"></li>
+            <li>password-密码文本框：<input type="password" name="" id="password" value="密码文本框"></li>
+            <li>radio-单选文本框：<input type="radio"></li>
+            <li>checkbox-多选文本框：<input type="checkbox" name="" id=""></li>
+            <li>button-按钮：<input type="button" name="" id=""></li>
+            <li>file-文件上传：<input type="file" name="" id=""></li>
+        </ul>
+    </form>
+
+    <h4>单行文本标签</h4>
+    <p>单行文本框是使用input标签来实现，其中type属性取值为text。单行文本框常见于注册登录功能。</p>
+    <table>
+        <caption>input单行文本标签常用属性：</caption>
+        <thead>
+            <tr>
+                <th>属性</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>value</td>
+                <td>设置文本框默认值，即默认情况下显示的文字。</td>
+            </tr>
+            <tr>
+                <td>size</td>
+                <td>设置文本框长度</td>
+            </tr>
+            <tr>
+                <td>maxlength</td>
+                <td>设置文本框最大可输入字符数</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>对于元素属性的定义，是没有先后顺序的，可以将value定义在前面，也可以定义在后面。</p>
+
+    <h4>密码文本框password</h4>
+    <p>密码文本框在外观上与单行文本框相似，两者也拥有相同的属性（value、size、maxlength等）。不过两者也有着本质上的区别：在单行文本框中输入的字符可见，而在密码文本框中输入的字符不可见。</p>
+    <p>密码文本框仅仅使周围的人看不见你输入的内容是什么，实际上它并不能保证数据的安全。为了保证数据安全，我们需要在浏览器与服务器之间建立一个安全连接，不过这个是属于后端技术做的事情。</p>
+
+    <h4>单选框radio</h4>
+    <p>单选框也是使用input标签来实现的，其中type属性取值为radio。</p>
+    <pre><code>
+        &lt;input type=&quot;radio&quot; name=&quot;组名&quot; value=&quot;取值&quot; /&gt;
+    </code></pre>
+    <p>name属性表示单选按钮所在的组名，而value表示单选按钮的取值，这两个属性必须要设置。</p>
+
+    <form action="post" name="radioform">
+        性别：
+            <label for=""><input type="radio" name="gender" value="男" checked>男</label>
+            <label for=""><input type="radio" name="gender" value="女">女</label>
+    </form>
+    <p>可使用checked属性来实现在默认情况下，选中第一个单选框。</p>
+    <p>为了得到更好的语义化，表单元素与后面的文本一般都需要借助label标签关联起来。</p>
+
+    <pre><code>
+        &lt;form action=&quot;post&quot; name=&quot;radioform&quot;&gt;
+        性别：
+            &lt;label for=&quot;&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;男&quot; checked&gt;男&lt;/label&gt;
+            &lt;label for=&quot;&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;女&quot;&gt;女&lt;/label&gt;
+        &lt;/form&gt;      
+    </code></pre>
+
+    <p>value属性取值一般跟后面的文本相同，之所以加上value属性，是为了方便JavaScript或者服务器操作数据。所有表单元素的value属性的作用都是一样的。</p>
+
+    <h4>复选框checkbox</h4>
+    <p>复选框也是使用input标签来实现的，其中type属性取值为checkbox。单选框只能选择一项，而复选框可以选择多项。</p>
+    <pre><code>
+        &lt;input type=&quot;checkbox&quot; name=&quot;组名&quot; value=&quot;取值&quot; /&gt;
+    </code></pre>
+
+    <form action="post" name="checkboxform">
+        你喜欢的水果：<br>
+            <label for=""><input type="checkbox" name="fruit" value="苹果" checked>苹果</label>
+            <label for=""><input type="checkbox" name="fruit" value="香蕉">香蕉</label>
+            <label for=""><input type="checkbox" name="fruit" value="葡萄">葡萄</label>
+            <label for=""><input type="checkbox" name="fruit" value="樱桃">樱桃</label>
+            <label for=""><input type="checkbox" name="fruit" value="西瓜">西瓜</label>
+    </form>
+    <p>同样可使用checked属性来实现在默认情况下，选中第一个单选框。</p>
+
+    <h4>普通按钮button</h4>
+    <p>普通按钮一般情况下都是配合JavaScript来进行各种操作的。语法如下：</p>
+    <pre><code>
+        &lt;input type=&quot;button&quot; value=&quot;取值&quot; name=&quot;&quot; id=&quot;&quot;&gt;
+    </code></pre>
+    <p>value取值就是按钮上的文字。</p>
+
+    <form action="post" name="buttonform">
+        <input type="button" value="表白">
+    </form>
+
+    <h4>提交按钮submit</h4>
+    <p>提交按钮一般用来给服务器提交数据。我们可以把提交按钮看成是一种特殊功能的普通按钮。</p>
+    <pre><code>
+        &lt;input type=&quot;submit&quot; name=&quot;&quot; id=&quot;&quot; value=&quot;取值&quot;&gt;
+    </code></pre>
+    <p>value取值就是按钮上的文字。</p>
+
+    <form action="post" name="submitform">
+        <input type="button" name="" id="" value="普通按钮">
+        <input type="submit" name="" id="" value="提交按钮">
+    </form>
+
+    <h4>重置按钮reset</h4>
+    <p>重置按钮一般用来清除用户在表单中输入的内容。重置按钮也可以看成是具有特殊功能的普通按钮。</p>
+    <pre><code>
+        &lt;input type=&quot;reset&quot; name=&quot;&quot; id=&quot;&quot; name=&quot;重置&quot;&gt;
+    </code></pre>
+
+    <form action="post" name="resrtform">
+        <label for="">帐号：<input type="text" name="" id=""></label><br>
+        <label for="">密码：<input type="password" name="" id=""></label><br>
+        <input type="reset" value="重置">
+    </form>
+    <p>重置按钮只能清空它所在form标签内表单中的内容，对于当前所在form标签之外的表单清除无效。</p>
+
+    <p>
+        普通按钮一般情况下都是配合JavaScript来进行各种操作的。<br>提交按钮一般都是用来给服务器提交数据的；重置按钮一般用来清除用户在表单中输入的内容。
+    </p>
+
+    <p>普通按钮、提交按钮以及重置按钮这三种按钮都是使用input标签来实现的。其实还有一种按钮是使用button标签来实现的。</p>
+    <pre><code>
+        &lt;button&gt;&lt;/button&gt;
+    </code></pre>
+    <p>
+        实际开发中，基本不会用到button标签。
+    </p>
+
+    <h4>文件上传</h4>
+    <p>文件上传也是使用input标签来实现的，其中type属性取值为file。语法：</p>
+    <pre><code>
+        &lt;input type=&quot;file&quot; name=&quot;&quot; id=&quot;&quot;&gt;
+    </code></pre>
+
+    <form action="post" name="fileform">
+        <input type="file" name="" id="">
+    </form>
+
+    <h4>多行文本标签</h4>
+    <p>多行文本框可以输入多行文本。在HTML中，多行文本框使用的是textarea标签，而不是input标签。语法：</p>
+    <pre><code>
+        &lt;textarea name=&quot;&quot; id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;默认内容&lt;/textarea&gt;
+    </code></pre>
+
+    <p>多行文本框的默认显示文本是在标签对内部设置，而不是在value属性中设置。一般情况下，不需要设置默认显示文本。</p>
+
+    <h4>下拉列表</h4>
+    <p>下拉列表由select和option这两个标签配合使用来表示。语法：</p>
+    <pre><code>
+        &lt;select name=&quot;&quot; id=&quot;&quot;&gt;
+            &lt;option value=&quot;&quot;&gt;选项1&lt;/option&gt;
+            &lt;option value=&quot;&quot;&gt;选项2&lt;/option&gt;
+        &lt;/select&gt;
+    </code></pre>
+    <p>可以把下拉列表看成是一种特殊的无序列表。</p>
+
+    <form action="post" name="selectform">
+        请选择喜欢的水果：<br>
+            <select name="" id="">
+                <option value="苹果">苹果</option>
+                <option value="香蕉">香蕉</option>
+                <option value="葡萄">葡萄</option>
+            </select>
+    </form>
+
+    <p>select标签常用属性有两个：multiple设置下拉列表可以选择多项；size设置下拉列表显示几个列表项，取值为整数。</p>
+
+    <form action="post" name="multiple-select-form">
+        请选择喜欢的水果：<br>
+            <select name="" id="" size="3" multiple>
+                <option value="苹果">苹果</option>
+                <option value="香蕉" selected>香蕉</option>
+                <option value="葡萄">葡萄</option>
+                <option value="樱桃">樱桃</option>
+                <option value="西瓜">西瓜</option>
+                <option value="橘子">橘子</option>
+            </select>
+    </form>
+
+    <p>option标签的常用属性有两个:selected设置是否选中；value设置选项值。</p>  
+      
+</body>
+
+
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <!--meta http-equiv="Content-Type" content="text/html;charset=utf-8"-->
+    <!--meta http-equiv="refresh" content="5;url=http://www.github.com"-->
+    <meta title="chapter8-框架">
+    <meta name="keywords" content="框架">
+    <meta name="description" content="html基础知识">
+    <meta name="author" content="le">
+    <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+<link rel="stylesheet" href="css/index.css">
+
+<style type="text/css">
+    table,tr,td{border: 1px solid silver;}
+</style>
+
+<script>
+    window.onload = function()
+    {
+        var oBtn = document.getElementsByName("buttonform");
+        oBtn[0].onclick = function()
+        {
+            alert("I ❤ HTML !")
+        }
+    }
+</script>
+
+</head>
+<html>
+<body>
+
+    <h3>框架</h3>
+    <h4>iframe标签</h4>
+    <p>在HTML中，可以使用iframe标签来实现一个内嵌框架。内嵌框架，说白了，就是在当前页面再嵌入另外一个网页。语法：</p>
+    <pre><code>
+        &lt;iframe src=&quot;链接地址&quot; frameborder=&quot;0&quot; width=&quot;宽度&quot; height=&quot;高度&quot;&gt;&lt;/iframe&gt;
+    </code></pre>
+    <p>src是必选的，用于定义链接页面的地址。width和height这两个属性是可选的，分别用于定义框架的宽度和高度。</p>
+
+    <iframe src="../index.html" frameborder="0" width="200" height="150"></iframe>
+    <iframe src="../HTML/chapter5-图片.html" frameborder="0" width="200" height="150"></iframe>
+
+    <p>
+        frameset、frame标签，在HTML5标准中已经被废弃。对于框架，我们只需要掌握iframe这一个标签就可以。
+    </p>
+    
+</body>
+
+
+</html>
