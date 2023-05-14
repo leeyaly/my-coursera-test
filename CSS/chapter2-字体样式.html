@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter2-字体样式</title>
+        <meta name="keywords" content="CSS,字体样式">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            p {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 15px;
+                font-weight: 600;
+                color: blueviolet;
+            }
+            h4 {
+                color: #03FCA1;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h3>字体样式</h3>
+        <table>
+            <caption>常用字体样式属性</caption>
+            <thead>
+                <tr>
+                    <th>属性</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>font-family</td>
+                    <td>字体类型</td>
+                </tr>
+                <tr>
+                    <td>font-size</td>
+                    <td>字体大小</td>
+                </tr>
+                <tr>
+                    <td>font-weight</td>
+                    <td>字体粗细</td>
+                </tr>
+                <tr>
+                    <td>font-style</td>
+                    <td>字体风格</td>
+                </tr>
+                <tr>
+                    <td>color</td>
+                    <td>字体颜色</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>字体类型</h4>
+        <p>font-family可以指定多种字体。使用多个字体时，将按从左到右的顺序排列，并且以英文逗号（，）隔开。如果我们不定义font-family，浏览器默认字体类型一般是“宋体”。</p>
+
+        <h4>字体大小</h4>
+        <p>使用font-size属性来定义字体大小。font-size属性取值有两种，一种是“关键字”，如small、medium、large等。另外一种是“像素值”，如10px、16px、21px等。不过在实际开发中，关键字这种方式基本不会用。</p>
+        <p>font-size的取值单位不仅仅有px，还有em、百分比等。</p>
+
+        <h4>字体粗细</h4>
+        <p>使用font-weight属性来定义字体粗细。注意，字体粗细（font weight）跟字体大小（font-size）是不一样的。粗细指的是字体的“肥瘦”，而大小指的是字体的“宽高”。</p>
+        <p>font-weight属性取值有两种：一种是100～900的“数值”；另外一种是“关键字”；对于实际开发来说，一般只会用到bold这一个属性值。</p>
+        <p>font-weight属性可以取100、200、…、900这九个值。其中100相当于lighter，400相当于normal，700相当于bold，而900相当于bolder。在实际开发中，不建议使用使用数值作为font-weight的属性取值。</p>
+
+        <h4>字体风格</h4>
+        <p>使用font-style属性来定义斜体效果。</p>
+        <p>font-style属性值为italic或oblique时，效果居然是一样的。italic是字体的一个属性，但是并非所有的字体都有这个italic属性。对于有italic属性的字体，我们可以使用font-style:italic;来实现斜体效果。但是对于没有italic属性的字体，我们只能另外想个法子，也就是使用font-style:oblique;来实现。</p>
+
+        <h4>字体颜色</h4>
+        <p>使用color属性来定义字体颜色。</p>
+        <p>color属性取值有两种：一种是“关键字”，另外一种是“16进制RGB值”。除了这两种，其实还有RGBA、HSL等</p>
+
+        <h4>CSS注释</h4>
+        <pre><code>
+            /*注释内容*/
+        </code></pre>
+        
+
+
+
+    </body>
+</html>

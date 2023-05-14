@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter6-表格样式</title>
+        <meta name="keywords" content="CSS,表格样式">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            table,th,td {
+                border: 1px solid salmon;
+            }
+            table {
+                caption-side: top;
+            }
+            #collapse{
+                border-collapse: collapse;
+            }
+            #spacing{
+                border-spacing: 3px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h3>表格样式</h3>
+        <h4>表格标题位置</h4>
+        <p>默认情况下，表格标题是在表格的上方。在CSS中，可以使用caption-side属性来定义表格标题的位置。</p>
+
+        <table>
+            <caption>caption-side属性取值</caption>
+            <thead>
+                <tr>
+                    <th>属性值</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>top</td>
+                    <td>标题在顶部</td>
+                </tr>
+                <tr>
+                    <td>bottom</td>
+                    <td>标题在底部</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>在table或caption这两个元素的CSS中定义caption-side属性，效果是一样的。不过一般情况下我们都只在table元素中定义。</p>
+
+        <h4>表格边框合并</h4>
+        <p>可以使用border-collapse属性来去除单元格之间的空隙，也就是将两条边框合并为一条。</p>
+
+        <table id="collapse">
+            <caption>border-collapse属性取值</caption>
+            <thead>
+                <tr>
+                    <th>属性值</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>separate</td>
+                    <td>边框分开，有空隙，默认值</td>
+                </tr>
+                <tr>
+                    <td>collapse</td>
+                    <td>边框合并，无空隙</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>表格边框间距</h4>
+        <p>可以使用border-spacing属性来定义表格边框间距。border-spacing属性也是在table元素中定义的。</p>
+
+        <table id="space">
+            <caption>border-spacing示例</caption>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>座右铭</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>冰冻三尺非一日之寒</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>心即理，致良知，知行合一。</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter5-列表样式</title>
+        <meta name="keywords" content="CSS,列表样式">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            ol {
+                list-style-type: upper-roman;
+            }
+            ul {
+                list-style-type: circle;
+            }
+            #none{
+                list-style-type: none;
+            }
+            #pic{
+                list-style-image: url(../HTML/images/edit-16.png);
+            }
+            #pic li{
+                background-size: 10px 10px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h3>列表样式</h3>
+        <p>在HTML中，对于有序列表和无序列表的列表项符号，都是使用type属性来定义</p>
+        <p>在CSS中，不管是有序列表还是无序列表，我们都是使用list-style-type属性来定义列表项符号。</p>
+
+        <h4>列表项符号</h4>
+        <p>list-style-type属性是针对ol或者ul元素的，而不是li元素。</p>
+        <p>有序列表的list-style-type属性如下：</p>
+        <ol>
+            <li>decimal:阿拉伯数字，默认值</li>
+            <li>lower-roman:小写罗马数字</li>
+            <li>upper-roman:大写罗马数字</li>
+            <li>lower-appha:小写英文字母</li>
+            <li>upper-alpha:大写英文字母</li>
+        </ol>
+        <p>无序列表的list-style-type属性如下：</p>
+        <ul>
+            <li>disc:实心圆点，默认值</li>
+            <li>circel:空心圆点</li>
+            <li>square:正方形</li>
+        </ul>
+        <p>使用list-style-type属性来去除有序列表或无序列表的列表项符号。</p>
+
+        <ul id="none">
+            <li>disc:实心圆点，默认值</li>
+            <li>circel:空心圆点</li>
+            <li>square:正方形</li>
+        </ul>
+
+        <h4>列表项图片</h4>
+        <p>可以使用list-style-image属性来定义列表项图片，也就是使用图片来代替列表项符号。语法：</p>
+        <pre><code>
+            list-style-image:url(图片路径);
+        </code></pre>
+
+        <ul id="pic">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+
+        <p>list-style-image属性实际上就是把列表项符号改为一张图片，而引用一张图片就要给出图片的路径。在实际开发中，像这种列表项符号，一般情况下我们不会用list-style-image属性来实现，而是使用更为高级的字体图标（iconfont）技术来实现。</p>
+
+    </body>
+</html>

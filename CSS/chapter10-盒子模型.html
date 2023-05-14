@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter10-盒子模型</title>
+        <meta name="keywords" content="CSS,盒子模型">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            div:nth-of-type(1){
+                display: inline-block;
+                padding: 20px;
+                margin: 40px;
+                border: 3px dashed red;
+                background-color: bisque;
+            }
+            div:nth-of-type(2){
+                display: inline-block;
+                padding-top: 20px;
+                padding-left: 80px;
+                padding-bottom: 60px;
+                padding-right: 40px;
+                background-color: aquamarine;
+            }
+            div:nth-of-type(3){
+                display: inline-block;
+                border: 1px solid red;
+            }
+            #mar{
+                display: inline-block;
+                padding: 20px;
+                margin-top: 20px;
+                margin-right: 40px;
+                margin-bottom: 60px;
+                margin-left: 80px;
+                border: 3px dashed red;
+                background-color: violet;
+            }
+            #father{
+                display: inline-block;
+                border: 1px dashed red;
+            }
+            #son{
+                display: inline-block;
+                padding: 20px;
+                margin-top: 20px;
+                margin-right: 40px;
+                margin-bottom: 60px;
+                margin-left: 80px;
+                background-color: yellowgreen;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h3>盒子模型</h3>
+        <p>在CSS盒子模型理论中，页面中的所有元素都可以看成一个盒子，并且占据着一定的页面空间。</p>
+
+        <p>一个页面由很多这样的盒子组成，这些盒子之间会互相影响，因此掌握盒子模型需要从两个方面来理解：一是理解单独一个盒子的内部结构（往往是padding），二是理解多个盒子之间的相互关系（往往是margin）。</p>
+
+        <p>每个元素都看成一个盒子，盒子模型是由content（内容）、padding（内边距）、margin（外边距）和border（边框）这四个属性组成的。此外，在盒子模型中，还有宽度width和高度height两大辅助性属性。所有的元素都可以视为一个盒子。</p>
+
+        <ul>
+            <li>content：内容，可以是文本或图片</li>
+            <li>padding：内边距，用于定义内容与边框之间的距离</li>
+            <li>maigin:外边距，用于定义当前元素与其他元素之间的距离</li>
+            <li>border:边框，用于定义元素的边框</li>
+        </ul>
+
+        <p>内容区是CSS盒子模型的中心，它呈现了盒子的主要信息内容，这些内容可以是文本、图片等多种类型。内容区是盒子模型必备的组成部分，其他的三部分都是可选的。</p>
+
+        <p>内容区有三个属性：width、height和overflow。使用width和height属性可以指定盒子内容区的高度和宽度。在这里注意一点，width和height这两个属性是针对内容区content而言的，并不包括padding部分。当内容过多超出width和height时，可以使用overflow属性来指定溢出处理方法。</p>
+
+        <p>内边距，指的是内容区和边框之间的空间，可以看成是内容区的背景区域。</p>
+        <p>关于内边距的属性有五种，即padding-top、padding-bottom、padding-left、padding-right以及综合了以上四个方向的简写内边距属性padding。使用这五种属性可以指定内容区与各方向边框之间的距离。</p>
+
+        <p>外边距，指的是两个盒子之间的距离，它可能是子元素与父元素之间的距离，也可能是兄弟元素之间的距离。外边距使得元素之间不必紧凑地连接在一起，是CSS布局的一个重要手段。</p>
+
+        <p>外边距的属性也有五种，即margin-top、margin-bottom、margin-left、margin-right以及综合了以上四个方向的简写外边距属性margin。</p>
+        <p>CSS允许给外边距属性指定负数值，当外边距为负值时，整个盒子将向指定负值的相反方向移动，以此可以产生盒子的重叠效果，这就是传说中的“负margin技术”。</p>
+
+        <p>边框属性有border-width、border-style、border-color以及综合了三类属性的简写边框属性border。</p>
+
+        <div>万里悲秋常作客，百年多病独登台。</div>
+
+        <h4>宽和高</h4>
+        <p>元素的宽度（width）和高度（height）是针对内容区而言的。padding并不是内容区的一部分。</p>
+        <p>只有块元素才可以设置width和height，行内元素是无法设置width和height的（我们这里不考虑inline-block元素）。</p>
+
+        <p>在CSS中，我们可以使用display属性来将行内元素转换为块元素，也可以将块元素转换为行内元素。</p>
+
+        <h4>边框</h4>
+        <p>对于border属性，更经常使用的是简写形式。</p>
+        <pre><code>
+            对于border属性，更经常使用的是简写形式。
+        </code></pre>
+        <p>第一个值指的是边框宽度（border-width），第二个值指的是边框外观（border-style），第三个值指的是边框颜色（border-color）。</p>
+
+        <h4>内边距</h4>
+        <p>内边距（padding），又常常被称为“补白”，它指的是内容区到边框之间的那一部分。内边距都是在边框内部的。</p>
+        <p>内边距分为四个方向：padding-top、padding-right、padding-bottom和padding-left。</p>
+
+        <div>空山新雨后，天气晚来秋。</div>
+
+        <p>跟border属性一样，padding属性也有简写形式。在实际开发中，我们往往使用简写形式。padding写法有四种，不过常用只有三种：</p>
+
+        <pre><code>
+            padding:像素值;
+            padding:像素值 1 像素值 2;
+            padding:像素值 1 像素值 2 像素值 3 像素值 4;
+        </code></pre>
+
+        <p>padding:20px;表示四个方向的内边距都是20px。</p>
+        <p>padding:20px 40px;表示padding-top和padding-bottom为20px，padding-right和padding-left为40px。</p>
+        <p>padding:20px 40px 60px 80px;表示padding-top为20px，padding-right为40px，padding-bottom为60px，padding-left为80px。</p>
+
+        <h4>外边距</h4>
+        <p>外边距（margin），指的是边框到“父元素”或“兄弟元素”之间的那一部分。外边距是在元素边框的外部。</p>
+        <p>外边距分为四个方向：margin-top、margin-right、margin-bottom和margin-left。</p>
+        <pre><code>
+            margin-top:像素值;
+            margin-right:像素值;
+            margin-bottom:像素值;
+            margin-left:像素值;
+        </code></pre>
+        <div>
+            <div id="mar">盒子模型。</div> 
+        </div>
+
+        <p>当只有父元素时，该元素设置的margin就是相对于父元素之间的距离。</p>  
+        
+        <div id="father">
+            <div>bro1</div>
+            <div id="son">son</div>
+            <div>bro2</div>
+        </div>
+
+        <p>当既有父元素，也有兄弟元素时，该元素会先看看四个方向有没有兄弟元素存在。如果该方向有兄弟元素，则这个方向的margin就是相对于兄弟元素而言。如果该方向没有兄弟元素，则这个方向的margin就是相对于父元素而言。</p>
+        <p>padding和margin的区别在于：padding体现的是元素的“内部结构”，而margin体现的是元素之间的相互关系。</p>
+
+        <p>跟padding一样，margin也有简写形式。在实际开发中，我们往往使用简写形式。</p>
+
+        <pre><code>
+            margin:像素值;
+            margin:像素值 1 像素值 2;
+            margin像素值 1 像素值 2 像素值 3 像素值 4;
+        </code></pre>
+        <p>margin:20px;表示四个方向的外边距都是20px。</p>
+        <p>margin:20px 40px;表示margin-top和margin-bottom为20px，margin-right和margin-left为40px。</p>
+        <p>margin:20px 40px 60px 80px;表示margin-top为20px，margin-right为40px，margin bottom为60px，margin-left为80px。</p>
+    </body>
+</html>

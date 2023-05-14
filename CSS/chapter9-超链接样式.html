@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter9-超链接样式</title>
+        <meta name="keywords" content="CSS,超链接样式">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            #git{text-decoration: none;}
+            #git:link{color: red;}
+            #git:visited{color: purple;}
+            #git:hover{color: yellow;}
+            #git:active{color: blue;}
+            #ho:hover{background-color: aquamarine;}
+            img{width: 690px; height: 415px;}
+            #poin{cursor: pointer}
+            #te{cursor: text;}
+            .cur{cursor: url(../HTML/images/cursor.cur), default;}
+        </style>
+
+    </head>
+    <body>
+        <h3>超链接样式</h3>
+        <h4>超链接伪类</h4>
+        <p>在CSS中，我们可以使用“超链接伪类”来定义超链接在鼠标点击的不同时期的样式。</p>
+        <pre><code>
+            a:link{…}
+            a:visited{…}
+            a:hover{…}
+            a:active{…}
+        </code></pre>
+        <p>定义这四个伪类，必须按照link、visited、hover、active的顺序进行，不然浏览器可能无法正常显示这四种样式。请记住，这四种样式定义顺序不能改变。</p>
+        <ol>
+            <li>a:link 定义a元素未访问时的样式</li>
+            <li>a:visited 定义a标签访问后的样式</li>
+            <li>a:hover 定义鼠标经过a元素师的样式</li>
+            <li>a:active 定义鼠标点击激活时的样式</li>
+        </ol>
+        <p><a id="git" href="../index.html" target="_blank">git操作简介</a></p>
+
+        <h4>深入了解hover</h4>
+        <p id="ho">:hover伪类可以定义任何一个元素在鼠标经过时的样式！注意，是任何元素。</p>
+        
+        <h4>鼠标样式</h4>
+        <p>在CSS中，对于鼠标样式的定义，有两种方式：浏览器鼠标样式和自定义鼠标样式。</p>
+        <p id="poin">使用cursor属性来定义鼠标样式。cursor取值如下：</p>
+        <img src="../HTML/images/cursor.jpg" alt="cursor">
+        <p id="te">一般使用到default、pointer、text这三个，其他的很少使用</p>
+
+        <p>除了使用浏览器自带的鼠标样式，我们还可以使用cursor属性来自定义鼠标样式。</p>
+        <pre><code>
+            cursor:url(图片地址), 属性值;
+        </code></pre>
+        <p class="cur">这个“图片地址”是鼠标图片地址，其中鼠标图片后缀名一般都是.cur。</p>
+        <p class="cur">这个“属性值”一般为default、pointer、text这三种。</p>
+
+    </body>
+</html>

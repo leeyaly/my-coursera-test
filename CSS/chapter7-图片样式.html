@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter7-图片样式</title>
+        <meta name="keywords" content="CSS,图片样式">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            img{
+                width: 255px;
+                height: 155px;
+            }
+            #bd{
+                border: 3px dashed tomato;
+            }
+            div:nth-of-type(1){
+                text-align: left;
+            }
+            div:nth-of-type(2){
+                text-align: center;
+            }
+            div:nth-of-type(3){
+                text-align: right;
+                        }
+            #m1{vertical-align: top;}
+            #m2{vertical-align: middle;}
+            #m3{vertical-align: baseline;}
+            #m4{vertical-align: bottom;}
+            #float{float: left;}
+        </style>
+
+    </head>
+    <body>
+        <h3>图片样式</h3>
+        <h4>图片大小</h4>
+        <p>在CSS中，也是使用width和height这两个属性来定义图片的大小（也就是宽度和高度）。</p>
+        <img src="../HTML/images/Magnolia.jpg" alt="Magnolia">
+
+        <p>在实际开发中，需要使用多大的图片，就用Photoshop制作多大的图片。不建议使用一张大图片，然后再借助width和height来改变大小。因为一张大图片体积更大，会使页面加载速度变慢。这是性能优化方面的考虑。</p>
+        
+        <h4>图片边框</h4>
+        <p>使用border属性来定义图片边框。</p>
+        <img id="bd" src="../HTML/images/Magnolia.jpg" alt="Magnolia">
+
+        <h4>图片对齐</h4>
+        <p>使用text-align属性来定义图片水平对齐方式。text-align属性取值:left-左对齐，默认值；center-居中对齐；right-右对齐。</p>
+
+        <p>text-align属性一般只用于两个地方：文本水平对齐和图片水平对齐。</p>
+        <p>很多人以为图片的水平对齐是在img元素中定义，其实这是错误的。图片是在父元素中进行水平对齐。</p>
+        <p>在这个例子中，img的父元素是div，因此想要实现图片的水平对齐，就应该在div中定义text align属性。</p>
+
+        <div>
+            <img src="../HTML/images/Magnolia.jpg" alt="Magnolia">
+        </div>
+        <div>
+            <img src="../HTML/images/Magnolia.jpg" alt="Magnolia">
+        </div>
+        <div>
+            <img src="../HTML/images/Magnolia.jpg" alt="Magnolia">
+        </div>
+
+        <h4>垂直对齐</h4>
+        <p>使用vertical-align来定义图片的垂直对齐方式。vertical-align属性取值:top-定顶部对齐；middle-中部对齐；baseline-基线对齐；bottom-底部对齐。</p>
+
+        <div>
+            Magnolia<img id="m1" src="../HTML/images/Magnolia.jpg" alt="Magnolia">top
+            <hr>
+            Magnolia<img id="m2" src="../HTML/images/Magnolia.jpg" alt="Magnolia">middle
+            <hr>
+            Magnolia<img id="m3" src="../HTML/images/Magnolia.jpg" alt="Magnolia">baseline
+            <hr>
+            Magnolia<img id="m4" src="../HTML/images/Magnolia.jpg" alt="Magnolia">bottom
+        </div>
+        <p>vertical-align属性定义周围的行内元素或文本相对于该元素的垂直方式。</p>
+
+        <h4>文字环绕-float</h4>
+        <img id="float" src="../HTML/images/Magnolia.jpg" alt="Magnolia">
+        <p>可以使用float属性来实现文字环绕图片的效果。float的属性有2个：left-元素向左浮动；right-元素向右浮动。</p>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter3-文本样式</title>
+        <meta name="keywords" content="CSS,文本样式">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            p{
+                font-size: 14px;
+                text-indent: 28px;
+            }
+            #center{text-align: center;}
+            #none{text-decoration: none;}
+            #underline{text-decoration: underline;}
+            #line-through{text-decoration: line-through;}
+            #overline{text-decoration: overline;}
+            #p1{text-transform: uppercase;}
+            #p2{text-transform: lowercase;}
+            #p3{text-transform: capitalize;}
+            #p4{line-height: 25px;}
+            #p5{letter-spacing:5px}
+            #p6{word-spacing: 10px;}
+        </style>
+
+    </head>
+    <body>
+        <h3>文本样式</h3>
+        <p>字体样式针对的是“文字本身”的型体效果，而文本样式针对的是“整个段落”的排版效果。字体样式注重个体，文本样式注重整体。因此在CSS中，特意使用了font和text两个前缀来区分这两类样式。常见文本样式如下：</p>
+        
+        <ul>
+            <li>text-indent:首行缩进</li>
+            <li>text-align:水平对齐</li>
+            <li>text-decoration:文本修饰</li>
+            <li>text-transform:大小写</li>
+            <li>line-height:行高</li>
+            <li>letter-sapcing/word-spacing:字母间距/词间距</li>
+        </ul>
+
+        <h4>首行缩进</h4>
+        <p>使用text-indent属性来定义p元素的首行缩进。</p>
+
+        <h4>水平对齐</h4>
+        <p id="center">text-align属性取值有3个：left-左对齐，默认值；center-居中对齐；right-右对齐。在实际开发中，我们只会用到center这一个，其他两个几乎用不上。</p>
+
+        <h4>文本修饰</h4>
+        <p>使用text-decoration属性来定义文本的修饰效果（下划线、中划线、顶划线）。</p>
+        <p id="none">none:去除所有划线效果，默认值。</p>
+        <p id="underline">underline:下划线。</p>
+        <p id="line-through">line-through:中划线。</p>
+        <p id="overline">overline:顶划线。</p>
+
+        <p>可以使用none属性去掉a标签中的下划线。</p>
+
+        <p>下划线一般用于强调文章中的重点。中划线经常出现在各大电商网站中，一般用于促销。顶划线一半很少使用。</p>
+
+        <h4>大小写</h4>
+        <p>可以使用text-transform属性来将文本进行大小写转换。text-transform属性是针对英文而言，因为中文不存在大小写之分。</p>
+
+        <p>text-transform的属性有4种：none-无转换，默认值；uppercase-转换为大写；lowercase-转换为小写；capitalize-每个单词首字母大写。</p>
+
+        <p id="p1">rome was't built in a day.</p>
+        <p id="p2">rome was't built in a day.</p>
+        <p id="p3">rome was't built in a day.</p>
+
+        <h4>行高</h4>
+        <p id="p4">使用line-height属性来控制每行文本的高度。很多书上称line height为“行间距”，这是非常不严谨的叫法。行高，顾名思义就是“一行的高度”，而行间距指的是“两行文本之间的距离”，两者是完全不一样的概念。</p>
+
+        <h4>行间距</h4>
+        <p id="p5">使用letter-spacing属性来调整两个字之间的距离。每一个中文汉字都被当成一个“字”，而每一个英文字母也当做一个“字”。</p>
+
+        <h4>词间距</h4>
+        <p id="p6">可以使用word-spacing属性来定义两个单词之间的距离。word-spacing，从英文意思上就可以知道这是“单词间距”。一般来说，word-spacing只针对英文单词而言。比如：rome was't built in a day.</p>
+
+    </body>
+</html>

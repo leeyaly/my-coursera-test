@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter8-背景样式</title>
+        <meta name="keywords" content="CSS,背景样式">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            div:nth-of-type(1){
+                background-color: bisque;
+            }
+            div:nth-of-type(2){
+                background-color: rgb(182, 194, 230);
+            }
+            div:nth-of-type(3){
+                color: white;
+                            background-image: url(../HTML/images/Magnolia.jpg);
+                        }
+            #repeat{
+                background-image: url(../HTML/images/edit-240.png);
+                background-repeat: repeat;
+            }
+            #position{
+                color: white;
+                border: 1px solid rgb(234, 9, 9);
+                background-image: url(../HTML/images/Magnolia.jpg);
+                background-position: 1px 3px;
+                background-repeat: no-repeat;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h3>背景样式</h3>
+        <p>背景样式包括两个方面：背景颜色和背景图片。</p>
+        <p>定义“背景颜色”使用的是background-color属性，而定义“背景图片”则比较复杂，往往涉及以下属性。</p>
+        <ul>
+            <li>background-image:定义背景图片地址</li>
+            <li>background-repeat:定义背景图片重复，例如横向重复，纵向重复</li>
+            <li>background-position:定义背景图片位置</li>
+            <li>background-attacment:定义背景图片固定</li>
+        </ul>
+
+        <h4>背景颜色</h4>
+        <div>
+            <p>使用background-color属性来定义元素的背景颜色。</p>
+        </div>
+        <div>
+            <p>颜色值有两种：一种是“关键字”；另外一种是“16进制RGB值”。其中关键字指的是颜色的英文名称，如red、green、blue等</p>
+        </div>
+
+        <h4>背景图片样式</h4>
+        <div>
+            <p>使用background-image属性来为元素定义背景图片。</p>
+            <pre><code>
+                &lt;p&gt;使用background-image属性来为元素定义背景图片。&lt;/p&gt;
+            </code></pre>
+        <p>背景图片跟图片是不一样的，背景图片是使用CSS来实现，而图片是使用HTML来实现。两者的使用场合也不一样，大多数情况下都是使用图片来实现，不过某些场合无法使用图片时我们再考虑背景图片形式。</p>
+        </div>
+        
+        <h4>背景图片重复</h4>
+        <div id="repeat">
+            <p>使用background-repeat属性来定义背景图片的重复方式。</p>
+            <p>background-repeat取值如下：</p>
+            <ul>
+                <li>repeat:在水平方向和垂直方向同时平铺，默认值</li>
+                <li>repeat-x:只在水平方向上平铺</li>
+                <li>repeat-y:只在垂直方向上平铺</li>
+                <li>no-repeat:不平铺</li>
+            </ul>
+        </div>
+
+        <h4>背景图片位置</h4>
+        <div id="position">
+            <p>使用background-position属性来定义背景图片的位置。</p>
+            <p>background-position属性常用取值有两种：一种是“像素值”，另外一种是“关键字”（这里不考虑百分比取值）。</p>
+            <p>当background-position属性取值为“像素值”时，要同时设置水平方向和垂直方向的数值。例如“background-position:12px 24px;”表示背景图片与该元素左上角的水平方向距离为12px，垂直方向距离为24px。语法:</p>
+            <pre><code>
+                background-position:水平距离 垂直距离;
+            </code></pre>
+        </div>
+    </body>
+</html>

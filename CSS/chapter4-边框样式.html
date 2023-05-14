@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter4-边框样式</title>
+        <meta name="keywords" content="CSS,边框样式">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            div{
+                width: 1000px;
+                height: 300px;
+                border: 1px dashed red;
+            }
+            #img1{
+                width: 255px;
+                height: 155px;
+                border: 2px solid greenyellow;
+            }
+            #img2{
+                width: 255px;
+                height: 155px;
+                border-top: none;
+                border-left: 3px solid rebeccapurple;
+                border-right: 3px dashed gold;
+                border-bottom: 3px solid hotpink;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h3>边框样式</h3>
+        <p>为一个元素定义边框样式，必须要同时设置border-width、border-style、border color这三个属性才会有效果。</p>
+
+        <h4>整体样式</h4>
+        <div>
+            <h5>边框属性</h5>
+            <p>border-width属性用于定义边框的宽度，取值是一个像素值。</p>
+            <p>border-style属性用于定义边框的外观，常用取值：none-无样式；dashed-虚线；solid-实线。还有hidden、dotted、double等取值。不过其他取值我们几乎用不上。</p>
+            <p>border-color属性用于定义边框的颜色，取值可以是“关键字”或“16进制RGB值”。</p>
+        </div>
+
+        <p>为img元素加上边框</p>
+        <img src="../HTML/images/Magnolia.jpg" alt="Magnolia" id="img1">
+
+        <hr>
+        <h4>局部样式</h4>
+        <p>为img元素加上边框</p>
+        <img src="../HTML/images/Magnolia.jpg" alt="Magnolia" id="img2">
+
+
+
+
+    </body>
+</html>
