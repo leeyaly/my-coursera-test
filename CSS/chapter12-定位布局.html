@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter12-定位布局</title>
+        <meta name="keywords" content="CSS,定位布局">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            div{border: 1px dashed red;}
+            .fix{
+                position: fixed;
+                top: 30px;
+                left: 500px;
+            }
+            .rela{
+                position: relative;
+                top: 20px;
+                left: 40px;
+
+            }
+            .abso{
+                position: absolute;
+                top: 50px;
+                left: 1000px;
+            }
+
+
+        </style>
+
+    </head>
+    <body>
+        <h3>定位布局</h3>
+        <p>浮动布局比较灵活，但是不容易控制。而定位布局的出现，使得精准定位页面中的任意元素成为可能。</p>
+        <p>由于定位布局缺乏灵活性，也给空间大小和位置不确定的版面布局带来限制。因此，在网页布局实战中，大家应该灵活使用这两种布局方式。</p>
+
+        <p>布局定位共有四种方式：固定定位（fixed），相对定位（relative），绝对定位（absolute），静态定位（static）。</p>
+        <p>这四种方式都是通过position属性来实现，其中默认值为static。</p>
+
+        <h4>固定定位</h4>
+        <p>使用position:fixed;来实现固定定位。所谓的固定定位，指的是被固定的元素不会随着滚动条的拖动而改变位置。</p>
+
+        <pre><code>
+            position:fixed;
+            top:像素值;
+            bottom;像素值;
+            left:像素值;
+            right:像素值;
+        </code></pre>
+
+        <p>position:fixed;是结合top、bottom、left和right这四个属性一起使用的，其中position:fixed;使得元素成为固定定位元素，接着使用top、bottom、left和right这四个属性来设置元素相对浏览器的位置。</p>
+        <p>top、bottom、left和right这四个属性不一定全部都用到，一般只会用到其中两个。注意，这四个值的参考对象是浏览器的四条边。</p>
+
+        <div>无定位的div元素</div>
+        <div class="fix">固定定位的div元素</div>
+
+        <p>固定定位最常用于实现返回顶部功能，这个效果非常经典，绝大多数网站都在使用。</p>
+
+        <h4>相对定位</h4>
+        <p>使用position:relative;来实现相对定位。所谓的相对定位，指的是该元素的位置是相对于它的原始位置计算而来的。</p>
+        <pre><code>
+            position:relative;
+            top:像素值;
+            bottom;像素值;
+            left:像素值;
+            right:像素值;  
+        </code></pre>
+
+        <p>position:relative;是结合top、bottom、left和right这四个属性一起使用的，其中position:relative;使得元素成为相对定位元素，接着使用top、bottom、left和right这四个属性来设置元素相对原始的位置。</p>
+        <p>top、bottom、left和right这四个属性不一定全部都用到，一般只会用到其中两个。这四个值的参考对象是该元素的原始位置。</p>
+        <p>在默认情况下，固定定位元素的位置是相对浏览器而言，而相对定位元素的位置是相对于原始位置而言！</p>
+
+        <div>无定位的div-1</div>
+        <div class="rela">相对定位的div-1</div>
+        <div>无定位的div-2</div>
+
+        <h4>绝对定位</h4>
+        <p>使用position:absolute;来实现绝对定位。绝对定位在几种定位方式中使用最为广泛，因为它能够很精确地把元素定位到任意你想要的位置。</p>
+        <p>一个元素变成了绝对定位元素，这个元素就完全脱离文档流了，绝对定位元素的前面或者后面的元素会认为这个元素并不存在，即这个元素浮于其他元素上面，它是独立出来的。</p>
+
+        <pre><code>
+            position:absolute;
+            top:像素值;
+            bottom:像素值;
+            left:像素值;
+            right:像素值;
+        </code></pre>
+        <p>position:absolute;是结合top、bottom、left和right这四个属性一起使用的，其中position:absolute;使得元素成为绝对定位元素，接着使用top、bottom、left和right这四个属性来设置元素相对浏览器的位置。</p>
+        <p>top、bottom、left和right这四个属性不一定全部都用到，一般只会用到其中两个。默认情况下，这四个值的参考对象是浏览器的四条边。</p>
+
+        <div>无定位的div-1</div>
+        <div class="abso">绝对定位的div-1</div>
+        <div>无定位的div-2</div>
+
+        <p>绝对定位元素的top和left是相对于浏览器而言的。在绝对定位中，top、right、bottom、left这四个属性，我们也是只需要其中两个属性就可以确定一个元素的相对位置。</p>
+
+        <h4>静态定位</h4>
+        <p>在默认情况下，也就是元素没有指定position属性时，这个元素就是静态定位的。也就是说元素position属性的默认值是static。</p>
+
+    </body>
+</html>

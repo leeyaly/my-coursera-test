@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>chapter11-浮动布局</title>
+        <meta name="keywords" content="CSS,浮动布局">
+        <meta name="description" content="CSS基础知识">
+        <meta name="author" content="le">
+        <meta name="copyright" content="整理自莫振杰老师《Web前端开发精品课 HTML CSS JavaScript基础教程》，仅做学习使用，禁止转载。">
+
+        <style type="text/css">
+            div{border: 1px dashed red;}
+            span:nth-of-type(1){background-color: aqua;}
+            span:nth-of-type(2){background-color: violet;}
+            span:nth-of-type(3){background-color: chartreuse;}
+            #p1{background-color: rgb(87, 238, 145);}
+            img{
+                width: 255px;
+                height: 155px;
+                border: 3px solid greenyellow;
+            }
+            .f{float: left;}
+            .loc{
+                position: fixed;
+                top: 30px;
+                left: 160px;
+
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <h3>浮动布局</h3>
+        <p>学习浮动布局和定位布局之前，我们先来了解“正常文档流”和“脱离文档流”。深入了解这两个概念，是学习浮动布局和定位布局的理论前提。</p>
+
+        <h4>正常文档流</h4>
+        <p>什么叫“文档流”？简单来说，就是指元素在页面中出现的先后顺序。</p>
+        <p>正常文档流，又称为“普通文档流”或“普通流”，也就是W3C标准所说的“normal flow”。正常文档流的简单定义：“正常文档流，将一个页面从上到下分为一行一行的，其中块元素独占一行，相邻行内元素在每一行中按照从左到右排列直到该行排满。”也就是说，正常文档流指的就是默认情况下页面元素的布局情况。</p>
+
+        <div>div</div>
+        <span>span-1</span><span>span-2</span>
+        <p id="p1">p</p>
+        <span>span-3</span><i>i</i>
+        <img src="../HTML/images/Magnolia.jpg" alt="Magnolia">
+        <hr>
+        
+        <p>由于div、p、hr都是块元素，因此独占一行。而span、i、img都是行内元素，因此如果两个行内元素相邻，就会位于同一行，并且从左到右排列。</p>
+
+        <h4>脱离文档流</h4>
+        <p>脱离文档流，指的是脱离正常文档流。正常文档流就是我们没有使用浮动或者定位去改变的默认情况下的HTML文档结构。如果我们想要改变正常文档流，可以使用两种方法：浮动和定位。</p>
+
+        <p>正常文档流显示如下：</p>
+        <div>box-1</div>
+        <div>box-2</div>
+        <div>box-3</div>
+
+        <p>对于这个HTML来说，正常文档流指的就是从上到下依次显示这三个div元素。由于div是块元素，因此每个div元素独占一行。</p>
+
+        <p>当我们为第二、三个div元素设置左浮动时,效果如下：</p>
+        <div>box-1</div>
+        <div class="f">box-2</div>
+        <div class="f">box-3</div>
+
+
+        <p>由于设置了浮动，第二、三个div元素却是并列一行，并且跑到父元素之外，跟正常文档流不一样。也就是说，设置浮动使得元素脱离了正常文档流。</p>
+
+        <p>当我们为第三个div元素设置绝对定位的时候：</p>
+        <div>box-1</div>
+        <div class=>box-2</div>
+        <div class="loc">box-fixed</div> 
+
+        <p>浮动，可以使得元素移到左边或者右边，并且允许后面的文字或元素环绕着它。浮动最常用于实现水平方向上的并排布局，例如两列布局、多列布局</p>
+
+        <p>浮动会影响周围元素，并且还会引发很多意想不到的问题。在CSS中，我们可以使用clear属性来清除浮动带来的影响。</p>
+        <p>在实际开发中，我们几乎不会使用“clear:left;”或“clear:right;”来单独清除左浮动或右浮动，往往都是直截了当地使用“clear:both;”来清除所有浮动，</p>
+
+
+
+
+    </body>
+</html>
