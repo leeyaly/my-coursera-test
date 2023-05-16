@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>数组</title>
+        <script>
+            //定义函数
+            function sum(n){
+                var m = 0;
+                for (var i = 1; i<=n; i++)
+                {
+                    m += i;
+                }
+                document.write(n + '以内所有整数和为' + m + '<br/>');
+            }
+            sum(50);
+            sum(500);
+
+            //在超链接中调用函数
+            function expressMes(){
+                alert('她：我爱helicopter。\n我：oh~my，= = ？！');
+            }
+
+            //创建数组
+            var demo_array = new Array(1, 2, 3, 4, 5);
+            var demo_array = [];
+            var demo_array = [1, 2, 3, 4, 5];
+            //获取数组中的值
+            demo_array[0];
+            //数组的赋值
+            demo_array[1] = 100;
+            //获取数组的长度
+            demo_array.length;
+            //数组内容截取,slice方法，左闭右开
+            demo_array.slice(1,4)
+            //在数组开头添加元素，unshift()
+            demo_array.unshift(55,66,77)
+            //在数组尾部添加元素，push()
+            demo_array.push(88,99)
+            //删除数组元素，删除数组第一个元素
+            demo_array.shift()
+            //删除数组最后一个元素，pop()
+            demo_array.pop()
+
+            //数组大小比较，sort()
+            demo_array.sort(function) 
+
+            
+
+            
+        </script>
+    </head>
+    <body>
+        <h3>函数</h3>
+        <a href="javascript:expressMes()">表白对话</a>
+        <input type="button" name="" id="" onclick="expressMes()" value="提交">
+
+    </body>
+</html>
