@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>数组对象</title>
+        <script>
+            //定义函数
+            function sum(n){
+                var m = 0;
+                for (var i = 1; i<=n; i++)
+                {
+                    m += i;
+                }
+                document.write(n + '以内所有整数和为' + m + '<br/><br>');
+            }
+            sum(50);
+            sum(500);
+
+            //在超链接中调用函数
+            function expressMes(){
+                alert('她：我爱helicopter。\n我：oh~my，= = ？！');
+            }
+
+            //创建数组
+            var demo_array = new Array(1, 2, 3, 4, 5);
+            var demo_array = [];
+            var demo_array = [101, 20, 35, 24, 5];
+            //获取数组中的值
+            demo_array[0];
+            //数组的赋值
+            demo_array[1] = 100;
+            //获取数组的长度
+            demo_array.length;
+            //数组内容截取,slice方法，左闭右开
+            demo_array.slice(1,4);
+            //在数组开头添加元素，unshift()
+            demo_array.unshift(55,66,77);
+            //在数组尾部添加元素，push()
+            demo_array.push(88,99);
+            //删除数组元素，删除数组第一个元素
+            demo_array.shift();
+            //删除数组最后一个元素，pop()
+            demo_array.pop();
+
+            //数组大小比较，sort()
+            function up(a, b)
+            {
+                return a - b;
+            }
+
+            demo_array.sort(up) 
+            document.write('升序：' + demo_array.sort(up) + '<br><br>');
+
+            //数组顺序颠倒，reverse()
+            document.write('颠倒前：' + demo_array + '<br><br>');
+            
+            demo_array.reverse();
+
+            document.write('颠倒后：' + demo_array + '<br><br>');
+
+            //将数组元素连接成字符串，join
+            var arr = ['HTML', 'CSS', 'JavaScript'];
+            document.write('数组内容：' + arr + '<br><br>');
+            document.write('数组内容拼接：' + arr.join('-') + '<br><br>');
+
+            //数组与字符串的转换操作
+            var str1 = '字符串效果展示'
+            var str2 = str1.split('').join('><');
+            var arr = str2.split('');
+            arr.unshift('<')
+            arr.push('>')
+            var result = arr.join('')
+            document.write('转换前：' + str1 + '<br><br>')
+            document.write('转换后：' + result + '<br><br>')
+
+            //面积和体积计算
+            function getSize(width, height, depth)
+            {
+                var area = width * height;
+                var volume = width * height * depth;
+                var size = [area, volume];
+                return size;
+            }
+            var arr = getSize(30, 40, 10);
+            document.write('底面积为：' + arr[0] + '<br><br>')
+            document.write('体积为：' + arr[1] + '<br><br>')
+
+            //如果有一个字符串"Rome was not built in a day"，请用程序统计该字符串中的字符个数，不允许使用字符串对象的length属性。
+            var rome = 'Rome was not built in a day'
+            function getLength(text){
+                var arr = text.split('');
+                var count = 0;
+                for(i=0;i<arr.length;i++){
+                    if (arr[i] != ' '){
+                        count = count + 1;
+                    }
+                }
+                return count;
+            }
+            document.write(rome + '的非空字符数为：' + getLength(rome) + '<br><br>')
+
+            //给大家一个任意的字符串，然后实现把里面的字符串顺序颠倒。例如给你"abcde"，最后你要得到"edcba"
+            function reverseText(text){
+                var arr = text.split('');
+                arr.reverse();
+                text = arr.join('');
+                return text;
+            }
+
+            document.write('转换前：' + rome + '<br><br>')
+            document.write('转换后：' + reverseText(rome) + '<br><br>')
+            
+
+
+            
+
+            
+        </script>
+    </head>
+    <body>
+        <h3>数组对象</h3>
+        <a href="javascript:expressMes()">表白对话</a>
+        <input type="button" name="" id="" onclick="expressMes()" value="提交">
+
+    </body>
+</html>

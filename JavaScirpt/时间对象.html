@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>时间对象</title>
+        <script>
+            //使用Date处理时间
+            var d = new Date();
+            var myDay = d.getDate();
+            var myMonth = d.getMonth() + 1;
+            var myYear = d.getFullYear();
+            document.write('今天是' + myYear + '年' + myMonth +'月' + myDay + '日' + '<br><br>');
+
+            //获取时分秒
+            var d = new Date();
+            var time = d.getHours();
+            if (time<12){
+                document.write('早上好！' + '<br><br>');
+            }
+            else if (time>=12 && time<18){
+                document.write('中午好！' + '<br><br>');
+            }
+            else
+            {
+                document.write('晚上好！' + '<br><br>');
+            }
+
+            //设置年月日
+            var d = new Date();
+            d.setFullYear(1992,09,01);
+            document.write('我设置的日期是：' + d + '<br><br>');
+
+            //操作时分秒
+            var d = new Date();
+            var myHours = d.getHours();
+            var myMinutes = d.getMinutes();
+            var mySeconds = d.getSeconds();
+            document.write('现在的时间是：' + myHours + ':' + myMinutes + ':' + mySeconds + '<br><br>')
+
+            //时间对象.setHours(hour, min, sec, millisec);
+            //millisec是可选参数，表示毫秒，取值为0～59之间的整数。
+
+            d.setHours(20, 30, 50, 15)
+            document.write('我设置的时间是：' + d + '<br><br>');
+
+            //可以使用getDay()方法来获取表示今天是星期几的一个数字。
+            //getDay()返回一个数字，其中0表示星期日（在国外，一周是从星期日开始的），1表示星期一，2表示星期二
+            var d = new Date();
+            var myD = d.getDay();
+            document.write('今天是周' + myD + '<br><br>');
+
+            
+        </script>
+    </head>
+    <body>
+        <h3>时间对象</h3>
+
+
+    </body>
+</html>
