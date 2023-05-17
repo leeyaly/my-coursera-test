@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM基础</title>
+        <script>
+            //DOM，全称Document Object Model（文档对象模型），它是由W3C定义的一个标准。
+            //一句话总结：DOM操作，可以简单理解成“元素操作”。
+
+            //DOM采用的是“树形结构”，用“树节点”形式来表示页面中的每一个元素。
+            //html元素是树根，也叫根元素。
+
+            //每一个元素就是一个节点，而每一个节点就是一个对象。也就是说，我们在操作元素时，其实就是把这个元素看成一个对象，然后使用这个对象的属性和方法来进行相关操作（这句话对理解DOM操作太重要了）。
+            
+            //节点类型
+            //在JavaScript中，节点也是分为很多类型的。DOM节点共有12种类型，不过常见的只有三种
+            
+            //元素节点-nodeType类型为1，属性节点-nodeType类型为2，文本节点-nodeType类型为3
+
+            //获取节点
+            //JavaScript中，我们可以通过以下六种方式来获取指定元素。
+            /*
+            getElementById()
+            getElementsByTagName()
+            getElementsByClassName()
+            querySelector()
+            querySelectorAll()
+            getElementsByName()
+            document.title
+            document.body
+            */
+
+            //getElementById()
+            window.onload = function() {
+                var oDiv = document.getElementById('div1');
+                oDiv.style.color = 'red';
+            }
+
+            //getElementsByTagName
+            //getElementsByTagName()方法获取的是一堆元素。实际上这个方法获取的是一个数组，如果我们想得到某一个元素，可以使用数组下标的形式获取
+            //准确来说，getElementsByTagName()方法获取的是一个“类数组”（也叫伪数组），也就是说这不是真正意义上的数组。因为我们只能使用到length属性以及下标的形式，但是对于push()等方法是没办法在这里用的
+            window.onload = function() {
+                var oUl = document.getElementById('list');
+                var oLi = oUl.getElementsByTagName('li');
+                oLi[2].style.color = 'green';
+            }
+
+            window.onload = function() {
+                var arr = ["HTML", "CSS", "JavaScript", "jQuery", "Vue.js"];
+                var oUl = document.getElementById('lists');
+                var oLi = oUl.getElementsByTagName('li');
+
+                for (var i = 0; i < oLi.length; i++){
+                    oLi[i].innerHTML = arr[i];
+                    oLi[i].style.color = 'red';
+                }
+            }
+
+            //getElementById()和getElementsByTagName()
+            window.onload = function()
+            {
+                document.body.innerHTML = '<input type="button" value="按钮" /><input type="button" value="按钮" /><input type="button" value="按钮" />';
+                var oBtn = document.getElementsByTagName('input');
+                oBtn[0].onclick = function()
+                {
+                    alert('表单元素共有' + oBtn.length + '个' + '<br><br>')
+                }
+            }
+
+            //getElementsByTagName()方法可以操作动态创建的DOM元素
+            //getElementById()是无法操作动态创建的DOM
+
+            //【重点】二者区别
+            //1、getElementById()获取的是一个元素，而getElementsByTagName()获取的是多个元素（伪数组）。
+            //2、getElementById()前面只可以接document，也就是document.getElementById()；getElementsByTagName()前面不仅可以接document，还可以接其他DOM对象。
+            //3、getElementById()不可以操作动态创建的DOM元素，而getElementsBy TagName()可以操作动态创建的DOM元素。
+
+            //getElementsByClassName()
+            //getElementsByClassName()获取的也是一个类数组。
+            window.onload = function(){
+                var oLi = document.getElementsByClassName('select');
+                oLi[0].style.color = 'red';
+            }
+
+            //getElementsByClassName()不能操作动态DOM
+
+            //querySelector()和querySelectorAll()
+            //这2个方法可以使用CSS选择器的语法来获取我们所需要的元素。它们的写法跟CSS选择器的写法是完全一样。
+
+            window.onload = function(){
+                var oDiv = document.querySelectorAll('.test');
+                oDiv[1].style.color ='red';
+            }
+
+            //当你选取的只有一个元素时，querySelector()和querySelectorAll()是等价的
+
+            //getElementsByName()
+            //对于表单元素来说，它有一个一般元素都没有的name属性。如果想要通过name属性来获取表单元素，我们可以使用getElementsByName()方法来实现。
+            //getElementsByName()获取的也是一个类数组
+
+            window.onload = function(){
+                var oInput = document.getElementsByName('status');
+                oInput[2].checked = true;
+            }
+
+            //document.title和document.body
+            //由于一个页面只有一个title元素和一个body元素，因此对于这两个元素的选取，JavaScript专门为我们提供了两个非常方便的方法：document.title和document.body。
+
+            window.onload = function(){
+                document.title = '梦想是什么？';
+                document.body.innerHTML ='<strong style="color:red">梦想是一种让你感到坚持就是幸福的东西。</strong>';
+            }
+
+        </script>
+    </head>
+    <body>
+        <h3>DOM基础</h3>
+        <div id="div1">JavaScript</div>
+
+        <ul id="list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>jQuery</li>
+            <li>Vue.js</li>
+        </ul>
+
+        <ul id="lists">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <ul id="lee">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li class="select">JavaScript</li>
+            <li class="select">jQuery</li>
+            <li class="select">Vue.js</li>
+        </ul>
+
+        <ul id="list">
+            <li>HTML</li>
+            <li class="test">CSS</li>
+            <li class="test">JavaScript</li>
+            <li>jQuery</li>
+            <li class="test">Vue.js</li>
+        </ul>
+
+        <div>
+            你的最高学历：<br>
+            <label for=""><input type="radio" name="status" id="" value="本科">本科</label>
+            <label for=""><input type="radio" name="status" id="" value="硕士">本科</label>
+            <label for=""><input type="radio" name="status" id="" value="博士">本科</label>
+        </div>
+
+    </body>
+</html>
