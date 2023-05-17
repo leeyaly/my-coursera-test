@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>数学对象</title>
+        <script>
+            //可以使用Math对象的属性和方法来实现各种运算。Math对象为我们提供了大量“内置”的数学常量和数学函数
+
+            //
+            120*Math.PI/180; //表示120°
+            document.write('圆周率是：' + Math.PI + '<br><br>');
+
+            //最大值与最小值
+            var arr = [3,9,1,12,50,21];
+            var a = Math.max(3,9,1,12,50,21);
+            var b = Math.min(3,9,1,12,50,21);
+            document.write(arr + '中的最大值是：' + a + '<br><br>');
+            document.write(arr + '中的最小值是：' + b + '<br><br>');
+
+            //取整运算
+            //向下取整
+            var arr = [3, 0.4, 0.6, -1.1, -1.9, 1.9];
+            for (i=0; i<arr.length; i++)
+            {
+                document.write('Math.floor(' + arr[i] + ')等于：' + Math.floor(arr[i]) + '<br><br>');
+            }
+
+            //向上取整
+            var arr = [3, 0.4, 0.6, -1.1, -1.9, 1.9];
+            for (i=0; i<arr.length; i++)
+            {
+                document.write('Math.ceil(' + arr[i] + ')等于：' + Math.ceil(arr[i]) + '<br><br>');
+            }
+
+            //三角函数
+            //sin(x)-正弦，cos(x)-余弦，tan(x)-正切
+            //asin(x)-反正弦，acos(x)-反余弦，atan(x)-反正切，atan2(x)-反正切
+            //atan2(x)能够精确判断角度对应哪一个角，而atan(x)不能。因此在高级动画开发时，我们大多用的是atan2(x)，基本用不到atan(x)。
+
+            var arr = [30, 45, 60];
+            for (i=0; i<arr.length; i++){
+                if (arr[i] == 30){
+                    document.write('sin30°等于：' + Math.sin(arr[i]*Math.PI/180) + '<br><br>');
+                }
+                else if (arr[i] == 45){
+                    document.write('tan45°等于：' + Math.tan(arr[i]*Math.PI/180) + '<br><br>');
+                }
+                else if (arr[i] == 60){
+                    document.write('cos60°等于：' + Math.cos(arr[i]*Math.PI/180) + '<br><br>');
+                }
+            }
+
+            //生成随机数
+            //使用random()方法来生成0～1之间的一个随机数。特别注意，这里的0～1是只包含0不包含1的，也就是[0, 1)。
+            document.write('生成[0, 1)之间的随机数：' + Math.random() + '<br><br>');
+            //生成某个范围内的随机数
+            document.write('生成[0, 10)之间的随机数：' + Math.random()*10 + '<br><br>');
+            document.write('生成[-8, 2)之间的随机数：' + (Math.random()*10 - 8) + '<br><br>');
+            document.write('生成[8, 18)之间的随机数：' + (Math.random()*10 + 8) + '<br><br>');
+            document.write('生成[-8, 8)之间的随机数：' + (Math.random()*8 - 8) + '<br><br>');
+
+            //随机数生成某个范围内的“整数”
+            document.write('生成[0, 5]之间的随机整数：' + Math.floor(Math.random()*(5+1)) + '<br><br>');
+            document.write('生成[1, 5]之间的随机数：'  + Math.floor(Math.random()*5+1) + '<br><br>');
+            document.write('生成[8, 15]之间的随机数：' + Math.floor(Math.random()*(15-8+1)+8) + '<br><br>');
+
+            //生成随机验证码
+            var str1 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+            var arr = str1.split('');
+            var result = '';
+            for (var i = 0; i < 4; i++) {
+                var n = Math.floor(Math.random()*arr.length);
+                result = result + arr[n];
+            }
+            document.write('验证码是：' + result + '<br><br>');
+
+            //生成随机颜色
+            function getRandomColors() {
+                var r = Math.floor(Math.random() * (256 + 0));
+                var g = Math.floor(Math.random() * (256 + 0));
+                var b = Math.floor(Math.random() * (256 + 0));
+                var rgb = 'rgb(' + r + ',' + g + ',' + b + ')';
+                return rgb; 
+            }
+            document.write(getRandomColors());
+
+
+
+
+
+
+
+            
+
+            
+        </script>
+    </head>
+    <body>
+        <h3>数学对象</h3>
+
+    </body>
+</html>
