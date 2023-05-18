@@ -3,6 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>DOM基础</title>
+
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+
+            tr,td {
+                width: 80px;
+                height: 20px;
+                border: 1px solid #ccc;
+            }
+
+        </style>
+
         <script>
             //DOM，全称Document Object Model（文档对象模型），它是由W3C定义的一个标准。
             //一句话总结：DOM操作，可以简单理解成“元素操作”。
@@ -34,7 +48,7 @@
             window.onload = function() {
                 var oDiv = document.getElementById('div1');
                 oDiv.style.color = 'red';
-            }
+            };
 
             //getElementsByTagName
             //getElementsByTagName()方法获取的是一堆元素。实际上这个方法获取的是一个数组，如果我们想得到某一个元素，可以使用数组下标的形式获取
@@ -43,7 +57,7 @@
                 var oUl = document.getElementById('list');
                 var oLi = oUl.getElementsByTagName('li');
                 oLi[2].style.color = 'green';
-            }
+            };
 
             window.onload = function() {
                 var arr = ["HTML", "CSS", "JavaScript", "jQuery", "Vue.js"];
@@ -53,8 +67,8 @@
                 for (var i = 0; i < oLi.length; i++){
                     oLi[i].innerHTML = arr[i];
                     oLi[i].style.color = 'red';
-                }
-            }
+                };
+            };
 
             //getElementById()和getElementsByTagName()
             window.onload = function()
@@ -63,9 +77,9 @@
                 var oBtn = document.getElementsByTagName('input');
                 oBtn[0].onclick = function()
                 {
-                    alert('表单元素共有' + oBtn.length + '个' + '<br><br>')
+                    alert('表单元素共有' + oBtn.length + '个' + '<br><br>');
                 }
-            }
+            };
 
             //getElementsByTagName()方法可以操作动态创建的DOM元素
             //getElementById()是无法操作动态创建的DOM
@@ -80,7 +94,7 @@
             window.onload = function(){
                 var oLi = document.getElementsByClassName('select');
                 oLi[0].style.color = 'red';
-            }
+            };
 
             //getElementsByClassName()不能操作动态DOM
 
@@ -90,8 +104,7 @@
             window.onload = function(){
                 var oDiv = document.querySelectorAll('.test');
                 oDiv[1].style.color ='red';
-            }
-
+            };
             //当你选取的只有一个元素时，querySelector()和querySelectorAll()是等价的
 
             //getElementsByName()
@@ -101,7 +114,7 @@
             window.onload = function(){
                 var oInput = document.getElementsByName('status');
                 oInput[2].checked = true;
-            }
+            };
 
             //document.title和document.body
             //由于一个页面只有一个title元素和一个body元素，因此对于这两个元素的选取，JavaScript专门为我们提供了两个非常方便的方法：document.title和document.body。
@@ -109,6 +122,149 @@
             window.onload = function(){
                 document.title = '梦想是什么？';
                 document.body.innerHTML ='<strong style="color:red">梦想是一种让你感到坚持就是幸福的东西。</strong>';
+            };
+
+            //创建元素
+            //在JavaScript中，可以使用createElement()来创建一个元素节点，也可以使用createTextNode()来创建一个文本节点
+            //这种方式又被称为“动态DOM操作”。所谓的“动态DOM”，指的是使用JavaScript创建的元素，这个元素一开始在HTML中是不存在的。
+
+            window.onload = function(){
+                var oDiv = document.getElementById('content');
+                var oStrong = document.createElement('strong');
+                var oTxt = document.createTextNode('创建简单元素');
+                oStrong.appendChild(oTxt);
+                oDiv.appendChild(oStrong);
+            };
+
+            //创建复杂元素-带属性
+            window.onload = function(){
+                var oInput = document.createElement('input');
+                oInput.type = 'button';
+                oInput.id = 'submit';
+                oInput.value = '提交';
+
+                document.body.appendChild(oInput);
+            };
+
+            //动态创建图片
+            window.onload = function(){
+                var oImg = document.createElement('img');
+                oImg.src = '../HTML/images/edit-240.png';
+                oImg.className = 'pic';
+                oImg.style.border = '1px solid silver';
+                oImg.width = '48';
+                oImg.height = '48';
+                document.body.appendChild(oImg);
+            };
+
+            //创建多个元素
+            window.onload = function(){
+                var oTable = document.createElement('table');
+                for (var i = 0; i < 3; i++){
+                    var oTr = document.createElement('tr');
+                    for (var j = 0; j < 3; j++){
+                        var oTd = document.createElement('td');
+                        oTr.appendChild(oTd);
+                    }
+                    oTable.appendChild(oTr);
+                }
+                document.body.appendChild(oTable);
+            }
+
+            //创建一个元素，需要以下四步:
+            //创建元素节点：createElement()
+            //创建文本节点：createTextNode()
+            //把文本节点插入元素节点：appendChild()
+            //把组装好的元素插入到已有元素中：appendChild()
+
+            //插入元素有2种方法，appendChild()和insertBefore()
+            //使用appendChild()把一个新元素插入到父元素的内部子元素的“末尾”。
+
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function(){
+                    var oUl = document.getElementById('add');
+                    var oTxt = document.getElementById('txt');
+                    //将文本框的内容转换为文本节点
+                    var textNode = document.createTextNode(oTxt.value);
+                    //动态创建一个li元素
+                    var oLi = document.createElement('li');
+                    //将文本节点插入li元素
+                    oLi.appendChild(textNode);
+                    //将li元素插入ul元素中去
+                    oUl.appendChild(oLi);
+
+                }
+            }
+
+            //insertBefore()
+            //使用insertBefore()方法将一个新元素插入到父元素中的某一个子元素“之前”。
+            //A.insertBefore(B,ref);将B插入A中ref的前面
+
+            window.onload = function(){
+                var oBtn = document.getElementById('bb');
+                oBtn.onclick = function(){
+                    var oLl = document.getElementById('ddd');
+                    var oTxt = document.getElementById('tt');
+                    var textNode = document.createTextNode(oTxt.value);
+                    var oLi = document.createElement('li');
+                    oLi.appendChild(textNode);
+                    oLl.insertBefore(oLi, oLl.firstElementChild);
+                }
+            }
+
+            //appendChild()和insertBefore()这两种插入元素的方法都需要获取父元素才可以进行操作。
+
+            //删除元素：使用removeChild()方法来删除父元素下的某个子元素。
+            
+            window.onload = function(){
+                var oBtn = document.getElementById('del');
+                oBtn.onclick = function(){
+                    var oUl = document.getElementById('list');
+                    oUl.removeChild(oUl.lastElementChild);
+                }
+            }
+
+            //oUl.removeChild(oUl.lastElementChild);表示删除ul中最后一个li元素
+            //oUl.removeChild(oUl.firstElementChild);表示删除ul中第一个li元素
+
+            //删除整个列表
+            window.onload = function(){
+                var oBtn = document.getElementById('del');
+                oBtn.onclick = function(){
+                    var oUl = document.getElementById('ddd');
+                    document.body.removeChild(oUl);
+                }
+            }
+
+            //复制元素：使用cloneNode()方法来实现复制元素。
+            //obj.cloneNode(bool) 
+            //1或true：表示复制元素本身以及复制该元素下的所有子元素。
+            //0或false：表示仅仅复制元素本身，不复制该元素下的子元素。
+            window.onload = function(){
+                var oBtn = document.getElementById('copy');
+                oBtn.onclick  = function(){
+                    var oUl = document.getElementById('list');
+                    document.body.appendChild(oUl.cloneNode(1));
+                }
+            }
+
+            //替换元素：使用replaceChild()方法来实现替换元素。
+            //A.replaceChild(new,old);
+
+            window.onload = function(){
+                var oBtn = document.getElementById('repl');
+                oBtn.onclick = function(){
+                    var oFirst = document.querySelector('#first');
+                    var oTag = document.getElementById('tag');
+                    var oTxt = document.getElementById('mm');
+
+                    var oNewTag = document.createElement(oTag.value);
+                    var oNewTxt = document.createTextNode(oTxt.value);
+
+                    oNewTag.appendChild(oNewTxt);
+                    document.body.replaceChild(oNewTag, oFirst);
+                }
             }
 
         </script>
@@ -155,6 +311,41 @@
             <label for=""><input type="radio" name="status" id="" value="硕士">本科</label>
             <label for=""><input type="radio" name="status" id="" value="博士">本科</label>
         </div>
+
+        <div id="content">
+
+        </div>
+
+        <ul id="add">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>jQuery</li>
+            <li>Vue.js</li>
+        </ul>
+
+        <input type="text" name="" id="txt">
+        <input type="button" id="btn" value="插入"><br><br>
+        <input type="button" id="del" value="删除"><br><br>
+        <input type="button" id="copy" value="复制"><br><br>
+
+        <div id="first">JavaScript</div>
+
+        <label for="">输入标签：<input type="text" id="tag"></label>
+        <label for="">输入内容：<input type="text" id="mm"></label>
+        <input type="button" id="repl" value="替换"><br><br>
+
+        <ul id="ddd">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>jQuery</li>
+            <li>Vue.js</li>
+        </ul>
+
+        <input type="text" name="" id="tt"><input type="button" id="bb" value="插入">
+
+
 
     </body>
 </html>
