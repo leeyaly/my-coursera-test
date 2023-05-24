@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM进阶：获取单选框的值</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                var oFruit = document.getElementsByName('fruit');
+
+                oBtn.onclick = function(){
+                    for (var i = 0; i < oFruit.length; i++){
+                        if (oFruit[i].checked){
+                            alert(oFruit[i].value);
+                        };
+                    };
+                };
+            }
+
+        </script>
+    </head>
+    <body>
+        <h3>DOM进阶：获取单选框的值</h3>
+
+        <div>
+            <label for=""><input type="radio" name="fruit" value="苹果">苹果</label>
+            <label for=""><input type="radio" name="fruit" value="西瓜">西瓜</label>
+            <label for=""><input type="radio" name="fruit" value="香蕉">香蕉</label>
+
+            <input type="button" name="" id="btn" value="获取单选框的值">
+        </div>
+
+    </body>
+</html>

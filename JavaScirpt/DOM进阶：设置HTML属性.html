@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM进阶：设置HTML属性</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            //设置HTML元素的属性值，同样也是通过属性名来设置。
+
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function(){
+                    if (oBtn.value == 'button'){
+                        oBtn.value = '修改';
+                    };
+                    else{
+                        oBtn.value = 'button';
+                    }                  
+                };
+            }
+
+        </script>
+    </head>
+    <body>
+        <h3>DDOM进阶：设置HTML属性</h3>
+
+        <input type="button" value="修改" id="btn">
+
+    </body>
+</html>

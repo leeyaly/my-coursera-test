@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM进阶：获取静态HTML中的属性</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            //HTML属性操作，指的是使用JavaScript来操作一个元素的HTML属性。
+            //在JavaScript中，有两种操作HTML元素属性的方式：一种是使用“对象属性”；另外一种是使用“对象方法”。
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function(){
+                    alert(oBtn.id);
+                }
+            }
+
+            //如果想要获取一个元素的class，写成oBtn.class是错误的，正确的应该写成oBtn.className。
+
+            //使用“obj.attr”这种方式，不仅可以用来获取静态HTML元素的属性值，还可以用来获取动态创建的DOM元素中的属性值。
+
+
+        </script>
+    </head>
+    <body>
+        <h3>DOM进阶：获取静态HTML中的属性</h3>
+
+        <input type="button" name="" id="btn" class="myBtn" value="获取">
+
+
+    </body>
+</html>

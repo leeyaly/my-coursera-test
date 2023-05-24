@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM进阶：获取动态DOM中的属性值</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            //使用“obj.attr”这种方式，不仅可以用来获取静态HTML元素的属性值，还可以用来获取动态创建的DOM元素中的属性值。
+
+            window.onload = function(){
+                var oInput = document.createElement('input');
+
+                oInput.id = 'submit';
+                oInput.type = 'button';
+                oInput.value = '提交';
+                document.body.appendChild(oInput);
+
+                oInput.onclick = function(){
+                    alert(oInput.id);
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h3>DOM进阶：获取动态DOM中的属性值</h3>
+
+
+
+    </body>
+</html>

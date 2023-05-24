@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM进阶：获取下拉菜单的值</title>
+
+        <style>
+
+        </style>
+
+        <script>
+
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                var oSelect = document.getElementById('select');
+
+                oBtn.onclick = function(){
+                    alert(oSelect.value);
+                };
+            }
+        </script>
+    </head>
+    <body>
+        <h3>DOM进阶：获取下拉菜单的值</h3>
+
+        <div>
+            <select name="" id="select">
+                <option value="苹果">苹果</option>
+                <option value="香蕉">香蕉</option>
+                <option value="李子">李子</option>
+                <option value="西瓜">西瓜</option>
+                <option value="草莓">草莓</option>
+            </select>
+
+
+            <input type="button" name="" id="btn" value="获取下拉菜单的值">
+        </div>
+
+    </body>
+</html>

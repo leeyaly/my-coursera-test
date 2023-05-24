@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM进阶：获取文本框的值</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            //在实际开发中，更多情况下我们想要获取的是表单元素的值。其中文本框、单选按钮、复选框、下拉列表中的值都是通过value属性来获取。
+
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                var oBtn2 = document.getElementById('btn2');
+
+                oBtn.onclick = function(){
+                    var oTxt = document.getElementById('txt');
+                    alert(oTxt.value);
+                };
+
+                oBtn2.onclick = function(){
+                    var oTxt = document.getElementById('area');
+                    alert(oTxt.value);
+                };
+            }
+
+            //对于单行文本框，HTML默认给它添加了一个value属性，只不过这个value属性是空的。
+            //其他表单元素也有类似的特点，都有一个默认的value值。对于多行文本框，也是通过value属性来获取内容。
+
+        </script>
+    </head>
+    <body>
+        <h3>DOM进阶：获取文本框的值</h3>
+
+        <input type="text" id="txt">
+        <input type="button" id="btn" value="获取单行文本框的值">
+
+        <br><br>
+
+        <textarea name="" id="area" cols="30" rows="10"></textarea>
+        <input type="button" value="获取多行文本框的值" id="btn2">
+
+    </body>
+</html>
