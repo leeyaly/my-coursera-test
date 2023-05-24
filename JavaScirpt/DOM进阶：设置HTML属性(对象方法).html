@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM进阶：设置HTML属性(对象方法)</title>
+
+        <style>
+            img{
+                width: 192px;
+                height: 132px;
+            }
+
+        </style>
+
+        <script>
+            //为了操作HTML元素的属性，JavaScript为我们提供了四种方法。
+            //getAttribute()
+            //setAttribute()
+            //removeAttribute()
+            //hasAttribute()
+
+            //对象方法和对象属性，两种方式都可以用来获取静态HTML的属性值以及动态DOM的属性值。
+
+            
+
+            window.onload = function(){
+
+                //获取固有属性
+                var oBtn = document.getElementById('btn')
+                oBtn.onclick = function(){
+                        alert(oBtn.getAttribute('id'));
+                    };
+
+                //获取自定义属性，显示undefined
+                var oBtn = document.getElementById('btn2');
+                oBtn.onclick = function(){
+                    alert(oBtn.data);
+                }
+
+                //自定义属性，自能使用getAttribute("id")实现。
+                var oBtn = document.getElementById('btn3');
+                oBtn.onclick = function(){
+                    alert(oBtn.getAttribute('data'));
+                }               
+                
+            }
+
+            //在这个例子中，我们可以使用oInput.id来代替oInput.getAttribute("id")，这两个是等价的。此外，使用obj.getAttribute("attr")这种方式，不仅可以用来获取静态HTML元素的属性值，还可以用来获取动态DOM元素中的属性值。这一点跟“obj.attr”是相同的。
+
+
+        </script>
+    </head>
+    <body>
+        <h3>DOM进阶：设置HTML属性(对象方法)</h3>
+
+        <input type="button" value="获取固有属性" id="btn">
+
+        <br><br>
+        <input type="button" value="获取自定义属性(.id)" id="btn2" data="JavaScript">
+
+        <br><br>
+        <input type="button" value="获取自定义属性(getAttribute)" id="btn3" data="JavaScript">
+
+    </body>
+</html>
