@@ -5,9 +5,9 @@
         <title>DOM进阶：设置HTML属性(对象方法)</title>
 
         <style>
-            img{
-                width: 192px;
-                height: 132px;
+            .main{
+                color: red;
+                font-weight: bold;
             }
 
         </style>
@@ -43,10 +43,44 @@
                     alert(oBtn.getAttribute('data'));
                 }               
                 
+                //在这个例子中，我们可以使用oInput.id来代替oInput.getAttribute("id")，这两个是等价的。此外，使用obj.getAttribute("attr")这种方式，不仅可以用来获取静态HTML元素的属性值，还可以用来获取动态DOM元素中的属性值。这一点跟“obj.attr”是相同的。
+
+                //可以使用setAttribute()方法来设置元素的某个属性的值。
+
+                var oBtn = document.getElementById('btn4');
+                oBtn.onclick = function(){
+                    oBtn.setAttribute('value', 'button');
+                };
+                //这里也可以使用oInput.value="button";来代替oInput.setAttribute ("value","button")。同样，对于自定义属性的值设置，也只能用setAttribute()方法来实现。
+
+                //使用removeAttribute()方法来删除元素的某个属性。
+                var oP = document.getElementsByTagName('p');
+                oP[0].onclick = function(){
+                    oP[0].removeAttribute('class');
+                };
+                
+                //removeAttribute()更多情况下是结合class属性来“整体”控制元素的样式属性的。
+                var oP1 = document.getElementsByTagName('p');
+                var oBtnAdd = document.getElementById('btn_add');
+                var oBtnRemove = document.getElementById('btn_remove');
+
+                oBtnAdd.onclick = function(){
+                    oP1[1].className = 'main';
+                };
+
+                oBtnRemove.onclick = function(){
+                    oP1[1].removeAttribute('class');
+                };
+
+                //使用hasAttribute()方法来判断元素是否含有某个属性。
+                var oP = document.getElementsByTagName('p');
+                if (oP[0].hasAttribute('class')){
+                    oP[0].onclick = function(){
+                        oP[0].removeAttribute('class');
+                    };
+                };
+
             }
-
-            //在这个例子中，我们可以使用oInput.id来代替oInput.getAttribute("id")，这两个是等价的。此外，使用obj.getAttribute("attr")这种方式，不仅可以用来获取静态HTML元素的属性值，还可以用来获取动态DOM元素中的属性值。这一点跟“obj.attr”是相同的。
-
 
         </script>
     </head>
@@ -60,6 +94,16 @@
 
         <br><br>
         <input type="button" value="获取自定义属性(getAttribute)" id="btn3" data="JavaScript">
+
+        <br><br>
+        <input type="button" id="btn4" value="修改(setAttribute)">
+        
+        <br><br>
+        <p class="main">已知乾坤大，犹怜草木青。（removeAttribute）</p>
+
+        <br><br>
+        <p>心之所向，一往无前。</p>
+        <input type="button" name="" id="btn_add" value="添加样式"><input type="button" id="btn_remove" value="删除样式">
 
     </body>
 </html>
