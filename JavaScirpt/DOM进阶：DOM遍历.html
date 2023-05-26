@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM进阶：DOM遍历</title>
+
+        <style>
+            table{border-collapse: collapse;}
+            table,tr,td{border: 1px solid gray;}
+
+        </style>
+
+        <script>
+            //DOM遍历，可以简单理解为“查找元素”。
+            //在JavaScript中，对于DOM遍历，我们可以分为以下三种情况
+            //查找父元素/查找子元素/查找兄弟元素
+
+            //使用parentNode属性来获得某个元素的父元素。
+
+            window.onload = function(){
+                var oTd = document.getElementsByTagName('td');
+                //遍历每一个td元素
+                for (var i = 0; i < oTd.length; i++){
+                    //为每一个td元素添加点击事件
+                    oTd[i].onclick = function(){
+                        var oParent = this.parentNode;
+                        oParent.style.color = 'white';
+                        oParent.style.backgroundColor = 'red';
+                    };
+                };
+
+                //查找子元素
+                //可以使用以下两组方式来获得父元素中的所有子元素或某个子元素。
+                //childNodes、firstChild、lastChild
+                //children、firstElementChild、lastElementChild
+                //childNodes获取的是所有的子节点。注意，这个子节点是包括元素节点以及文本节点的。而children获取的是所有的元素节点，不包括文本节点。
+
+                var oUl = document.getElementById('list');
+                var childNodesLen = oUl.childNodes.length;
+                var childrenLen = oUl.children.length;
+                alert('childNodes的长度为：' + childNodesLen + '\n' + 'children的长度是：' + childrenLen);
+
+                //对于ul元素来说，childNodes包括了三个子元素节点和四个子文本节点。每一个li元素之间都是换行的，每一次换行都是一个空白节点，JavaScript会把这些空白节点当成文本节点来处理。
+
+                //当我们尝试点击“删除”按钮时，会发现一个很奇怪的现象：需要点击两次才可以删除一个li元素
+                //两个元素之间的“换行空格”其实也是一个节点。因此在删除节点的时候，第一次点击删除的是“文本节点”，第二次点击删除的才是li元素。
+
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function(){
+                    oUl.removeChild(oUl.lastChild);
+                };
+
+                //元素节点的nodeType属性值为1，文本节点的nodeType属性值为3，可根据属性值判断
+                var oBtn1 = document.getElementById('btn1');
+                oBtn1.onclick = function(){
+                    if (oUl.lastChild.nodeType == 3){
+                        oUl.removeChild(oUl.lastChild);
+                        oUl.removeChild(oUl.lastChild);
+                    } else {
+                        oUl.removeChild(oUl.lastChild);
+                    }
+                };
+
+                //新的方法，也就是只针对元素节点的操作属性：children、firstElementChild、lastElementChild。
+                //可以使用children[i]的方式来实现获取任意一个子元素节点。
+                var oBtn2 = document.getElementById('btn2');
+                oBtn2.onclick = function(){
+                    oUl.removeChild(oUl.lastElementChild);
+                };
+
+                //查找兄弟元素：可以使用以下两组方式来获得兄弟元素。
+                //previousSibling、nextSibling
+                //previousElementSibling、nextElementSibling
+                //previousSibling和nextSibling查找出来的可能是文本节点（一般是空白节点），如果希望只操作元素节点，建议用previousElementSibling和nextElementSibling。
+
+                var oBtn3 = document.getElementById('btn3');
+                oBtn3.onclick = function(){
+                    var preElement = oUl.children[2].previousElementSibling;
+                    oUl.removeChild(preElement);
+                };
+
+                //比如以下是通过设置元素属性的方式动态创建内容
+                var oImg = document.createElement('img');
+                oImg.className = 'pic';
+                oImg.src = '../HTML/images/Lotus_1.jpg';
+                oImg.style.border = '1px solid silver';
+                oImg.width = '192';
+                oImg.height = '132';
+                document.body.appendChild(oImg);
+
+                //用innerHTML来实现，就非常简单。
+
+                //document.body.innerHTML = "<img class='pic' src='../HTML/images/Lotus_2.jpg' style='border:1px solid silver'>"
+
+                //获取innerHTML和innerText
+
+                var oP = document.getElementById('content');
+                document.getElementById('txt1').value = oP.innerHTML;
+                document.getElementById('txt2').value = oP.innerText;
+
+                //为了提升可读性，我们往往希望将字符串截断分行显示。只需要在字符串每一行后面加上个反斜杠（\）就可以。
+                var oDiv = document.getElementsByTagName('div')[0];
+                oDiv.innerHTML = '<span>js</span>\
+                              <span style="color:hotpink;">JavaScript</span>\
+                              <span style="color:deepskyblue;">入门教程</span>';
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <h3>DOM进阶：DOM遍历</h3>
+
+        <table>
+            <caption>考试成绩表</caption>
+            <tr>
+                <td>小明</td>
+                <td>80</td>
+                <td>80</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>小红</td>
+                <td>90</td>
+                <td>90</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>小杰</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+        </table>
+
+        <ul id="list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Vue.js</li>
+            <li>jQuery</li>
+        </ul>
+        <input type="button" id="btn" value="删除2次方可删除">
+        <input type="button" id="btn1" value="点击一次即可删除">
+        <input type="button" id="btn2" value="新方法，点击一次即可删除">
+        <input type="button" id="btn3" value="通过获取兄弟元素删除">
+        <br><br>
+
+        <p id="content"><strong style="color:hotpink;">留白</strong></p>
+        innerHTML是：<input type="text" name="" id="txt1"><br>
+        innerText是：<input type="text" id="txt2">
+        
+        <br><br>
+        <div></div>
+        <br><br>
+    </body>
+</html>
