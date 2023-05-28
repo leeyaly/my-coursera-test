@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>事件基础：编辑事件</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            /*
+            在JavaScript中，常用的编辑事件有三种：
+            oncopy
+            onselectstart
+            oncontextmenu
+            */
+
+            window.onload = function(){
+                //可以使用oncopy事件来防止页面内容被复制。
+                document.body.oncopy = function()
+                {
+                    return false;
+                };
+
+                //使用onselectstart事件来防止页面内容被选取。
+                document.body.onselectstart = function()
+                {
+                    return false;
+                };
+
+                //使用oncontextmenu事件来禁用鼠标右键。
+                document.oncontextmenu = function(){
+                    return false;
+                };
+            };
+
+        </script>
+    </head>
+    <body>
+        <h3>事件基础：编辑事件</h3>
+
+        <p>已禁止复制文本。</p>
+        <p>已禁止选取内容。</p>
+        <p>已禁止使用鼠标右键。</p>
+   </body>
+</html>

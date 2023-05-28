@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>事件基础：事件基础</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            //在script标签中调用事件
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function(){
+                    alert('在script标签中调用事件。');
+                };
+            }
+            //在元素中调用事件，先在script标签中定义函数
+            function alertMes(){
+                alert('在元素中调用事件');
+            }
+        </script>
+    </head>
+    <body>
+        <h3>事件基础：事件基础</h3>
+        <p>JavaScript中常见的事件共有以下五种</p>
+        <ul>
+            <li>鼠标事件</li>
+            <li>键盘事件</li>
+            <li>表单事件</li>
+            <li>编辑事件</li>
+            <li>页面事件</li>
+        </ul>
+
+        <p>在JavaScript中，调用事件的方式有两种：</p>
+        <p>在script标签中调用</p>
+        <p>在元素中调用事件</p>
+
+        <input type="button" id="btn" value="在script标签中调用事件">
+        <input type="button" onclick="alertMes()" value="在元素中调用事件">
+
+        <p>在实际开发中，更倾向于在script标签中调用事件，因为这种方式可以使得结构（HTML）与行为（JavaScript）分离，代码更具有可读性和维护性。</p>
+    </body>
+</html>

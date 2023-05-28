@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>事件基础：页面事件</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            /*
+            在JavaScript中，常用的页面事件只有两个：
+            onload：表示文档加载完成后再执行的一个事件。
+            onbeforeunload：onbeforeunload表示离开页面之前触发的一个事件。
+
+            */
+
+            //onload：表示文档加载完成后再执行的一个事件。
+
+            window.onload = function(){
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function()
+                {
+                    alert('JavaScript');
+                };
+
+            };
+
+            //onbeforeunload：onbeforeunload表示离开页面之前触发的一个事件。
+            //与window.onload相对的应该是window.onunload
+            //不过一般情况下极少用到window.onunload，而更倾向于使用window.onbeforeunload。
+
+            window.onbeforeunload = function(e)
+            {
+                var e = window.event || e;
+                e.returnValue = '确定离开当前页面吗？';
+            };
+            
+
+ 
+        </script>
+    </head>
+    <body>
+        <h3>事件基础：页面事件</h3>
+
+        <input type="button" id="btn" value="提交">
+
+   </body>
+</html>

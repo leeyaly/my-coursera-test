@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>事件基础：表单事件</title>
+
+        <style>
+            #search{
+                color: #bbbbbb;
+            }
+        </style>
+
+        <script>
+            /*在JavaScript中，常用的表单事件有三种
+            
+            onfocus和onblur:onfocus表示获取焦点时触发的事件，而onblur表示失去焦点时触发的事件，两者是相反操作
+            onselect
+            onchange
+            submit:一般结合后端技术来使用
+            */
+
+            /*
+            并不是所有的HTML元素都有焦点事件，具有“获取焦点”和“失去焦点”特点的元素只有两种。
+            表单元素
+            超链接
+            判断一个元素是否具有焦点很简单，打开一个页面后按Tab键，能够选中的就是具有焦点特性的元素。
+            */
+
+            function fo(){
+                var oSearch = document.getElementById('search');
+                if (oSearch.value == '搜索一下'){
+                    oSearch.value = '';
+                };
+            };
+
+            function bl(){
+                var oSearch = document.getElementById('search');
+                if (oSearch.value == ''){
+                    oSearch.value = '搜索一下';
+                };
+            };
+
+            /*可以用focus()方法，自动获取焦点
+            window.onload = function(){
+                var oTxt = documnet.getElementById('txt');
+                oTxt.focus();
+            };
+
+            可以用为标签添加autofocus属性，也可以自动获取标签
+            <input id="txt" type="text" autofocus/>
+
+            */
+
+
+            //在JavaScript中，当我们选中“单行文本框”或“多行文本框”中的内容时，就会触发onselect事件。
+            function selectTxt(ele){
+                var oTxt = document.getElementById(ele.id);
+                if (ele.type == 'text'){
+                    alert('你选中了单行文本框中的内容。');
+                } else if (ele.name == 'area') {
+                    alert('你选中了多行文本框中的内容。');
+                }
+            };
+
+            //可通过select方法，点击搜索按钮时，选中输入的搜索内容
+            function sel(){
+                var oSearch = document.getElementById('search');
+                oSearch.select();
+            };
+
+            /*
+            在JavaScript中，onchange事件常用于“具有多个选项的表单元素”中。
+            单选框选择某一项时触发
+            复选框选择某一项时触发
+            下拉列表选择某一项时触发
+            */
+
+            window.onload = function(){
+                //单选框选择时触发
+                var oFruit = document.getElementsByName('fruit');
+                var oP = document.getElementById('content');
+
+                for (var i = 0; i < oFruit.length; i++){
+                    oFruit[i].onchange = function(){
+                        if (this.checked){
+                            oP.innerHTML = '你选择的是：' + this.value;
+                        }
+                    };
+                };
+
+                //复选框的全选与反选
+                var oSelectAll = document.getElementById('seletcAll');
+                var oFruit = document.getElementsByName('fru');
+                oSelectAll.onchange = function(){
+                    if (this.checked) {
+                        for (var i = 0; i < oFruit.length; i++)
+                        {
+                            oFruit[i].checked = true;
+                        }
+                    } else {
+                            for (var i = 0; i < oFruit.length; i++)
+                            {
+                                oFruit[i].checked = false;
+                            }
+                        }
+                };
+
+                //下拉列表
+                //选择下拉列表的某一项时，触发的是onchange事件，而不是onselect事件。
+                //onselect事件仅仅在选择文本框中的内容时才会触发。
+
+                var oList = document.getElementById('list');
+                oList.onchange = function(){
+                    var link = this.options[this.selectedIndex].value;
+                    window.open(link);
+                };
+
+
+                 
+            }
+
+
+
+        </script>
+    </head>
+    <body>
+        <h3>事件基础：表单事件</h3>
+
+        <input type="text" id="search" value="搜索一下" onblur="bl()" onfocus="fo()">
+        <input type="button" value="搜索" onclick="sel()">
+
+        <hr>
+        <input type="text" id="t1" onselect="selectTxt(this)" value="这是单行文本框中的内容。">
+        <textarea name="area" id="t2" cols="30" rows="10" onselect="selectTxt(this)">这是多行文本框中的内容。</textarea>
+
+        <hr>
+        <label for=""><input type="radio" name="fruit" value="苹果">苹果</label>
+        <label for=""><input type="radio" name="fruit" value="香蕉">香蕉</label>
+        <label for=""><input type="radio" name="fruit" value="西瓜">西瓜</label>
+
+        <p id="content"></p>
+
+        <hr>
+        <p><label for=""><input type="checkbox" id="seletcAll">全选/反选：</label></p>
+        <label for=""><input type="checkbox" name="fru" value="苹果">苹果</label>
+        <label for=""><input type="checkbox" name="fru" value="香蕉">香蕉</label>
+        <label for=""><input type="checkbox" name="fru" value="西瓜">西瓜</label>    
+        
+        <hr>
+
+        <select name="" id="list">
+            <option value="http://www.baidu.com">百度</option>
+            <option value="http://www.qq.com">腾讯</option>
+            <option value="http://www.sohu.com">搜狐</option>
+        </select>
+
+
+
+   </body>
+</html>

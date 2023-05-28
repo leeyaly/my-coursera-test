@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>事件基础：键盘事件</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            //常用的键盘事件共有两种。
+            //键盘按下：onkeydown
+            //键盘松开：onkeyup
+
+            function count(){
+                var oTxt = document.getElementById('txt');
+                var oNum = document.getElementById('num');
+                var str = oTxt.value;
+                oNum.innerHTML = str.length;
+            };
+
+            //验证输入是否正确
+            function check(){
+                var oTxt =document.getElementById('txt1');
+                var oDiv = document.getElementById('content');
+                var myregex = /^[0-9]*$/;
+
+                if (myregex.test(oTxt.value)){
+                    oDiv.innerHTML = '输入正确';
+                } else {
+                    oDiv.innerHTML = '必须输入数字';
+                }
+            };
+            //键盘事件一般有两个用途：表单操作和动画控制。
+
+        </script>
+    </head>
+    <body>
+        <h3>事件基础：键盘事件</h3>
+
+        <input type="text" id="txt" onkeyup="count()" placeholder="请输入字符串">
+        <div>字符串长度为：<span id="num">0</span></div>
+
+        <hr>
+        <input type="text" id="txt1" onkeyup="check()">
+        <div id="content" style="color: red;"></div>
+
+
+   </body>
+</html>

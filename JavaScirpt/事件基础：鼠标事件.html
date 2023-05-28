@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>事件基础：鼠标事件</title>
+
+        <style>
+            #btn{
+                display: inline-block;
+                width: 80px;
+                height: 24px;
+                line-height: 24px;
+                font-family: 微软雅黑;
+                font-size: 15px;
+                text-align: center;
+                border-radius: 3px;
+                background-color: deepskyblue;
+                color: white;
+                cursor: pointer;
+            }
+            #btn:hover{
+                background-color: dodgerblue;
+            }
+        </style>
+
+        <script>
+            //常见的鼠标事件有以下6种：
+            /*
+            鼠标单击：onclick
+            鼠标移入：onmouseover
+            鼠标移出：onmouseout
+            鼠标按下：onmousedown
+            鼠标松开：onmouseup
+            鼠标移动：onmousemove
+            */
+
+            //鼠标单击，单击事件不只是按钮才有，我们可以为任何元素添加单击事件。
+
+            function alertClick(){
+                alert('play?');                
+            }
+            //在实际开发中，为了获得更好的用户体验，一般不会使用表单按钮，更倾向于使用其他元素结合CSS模拟出来。
+
+
+            //鼠标移入和移出
+            //将鼠标移入到某个元素上面时，就会触发onmouseover事件。
+            //将鼠标移出某个元素时，就会触发onmouseout事件
+            //onmouseover和onmouseout平常都是形影不离的。
+
+            function mOver(){
+                var oP = document.getElementById('content');
+                oP.style.color = 'red';
+            };
+
+            function mOut(){
+                var oP = document.getElementById('content');
+                oP.style.color = 'black';
+            };
+
+            //鼠标按下和松开
+            //当用户按下鼠标时，会触发onmousedown事件；当用户松开鼠标时，则会触发onmouseup事件。
+            function mDown(){
+                var oP = document.getElementById('btn1');
+                oP.style.color = 'red';
+            };
+            function mUp(){
+                var oP = document.getElementById('btn1');
+                oP.style.color = 'black';                
+            };
+            //在实际开发中，onmousedown、onmouseup和onmousemove这三个经常配合使用，来实现拖拽、抛掷等效果，
+
+
+        </script>
+    </head>
+    <body>
+        <h3>事件基础：鼠标事件</h3>
+
+        <p>鼠标点击事件</p>
+        <div id="btn" onclick="alertClick()">鼠标点击</div>
+
+        <p id="content" onmouseover="mOver()" onmouseout="mOut()">鼠标移入移出事件。</p>
+
+        <div id="btn1" onmousedown="mDown()" onmouseup="mUp()">鼠标按下和松开</div>
+
+   </body>
+</html>
