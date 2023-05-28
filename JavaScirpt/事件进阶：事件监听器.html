@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>事件进阶：事件监听器</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            /*
+            在JavaScript中，想要给元素添加一个事件，有两种方式：
+            事件处理器
+            事件监听器
+            */
+
+            //在前面的学习中，要给元素添加一个事件，都是通过操作HTML属性的方式来实现，这种方式其实也叫做“事件处理器”。
+            //事件处理器的用法非常简单，代码写出来也很易读。不过这种添加事件的方式是有一定缺陷。
+            //事件处理器是没办法为一个元素添加多个相同事件。
+            //如果想要为一个元素添加多个相同的事件，就需要用到另外一种添加事件的方式了，那就是事件监听器。
+
+            /*
+            绑定事件：
+            所谓事件监听器，指的是使用addEventListener()方法来为一个元素添加事件，我们又称之为“绑定事件”
+            obj.addEventListener(type , fn , false)
+
+            obj是一个DOM对象，指的是使用getElementById()、getElementsByTag Name()等方法获取到的元素节点。
+            type是一个字符串，指的是事件类型。例如单击事件用“click”，鼠标移入用“mouseover”等。一定要注意，这个事件类型是不需要加上on前缀的。
+            fn是一个函数名，或者一个匿名函数。
+            false表示事件冒泡阶段调用
+            */
+
+            window.onload = function()
+            {
+                var oBtn = document.getElementById('btn');
+
+                function alertMes()
+                {
+                    alert('JavaScript');
+                };
+
+                function alertpaly()
+                {
+                    alert('paly');
+                };
+
+                oBtn.addEventListener('click', alertMes, false);
+                oBtn.addEventListener('click', alertpaly, false);
+                //使用事件监听器这种方式来为同一个元素添加多个相同的事件，而这一点是事件处理器做不到的。
+                //如果想要为元素仅仅添加一个事件的话，下面两种方式其实是等价的。
+
+                /*
+                有一种解决方法，那就是使用网上流传甚广的addLoadEvent()函数。
+                addLoadEvent不是JavaScript内置函数，而是需要自己定义的。addLoadEvent()函数代码如下
+
+                function addLoadEvent(func)
+                {
+                    var oldonload = window.onload;
+                    if (typeof window.onload != 'function')
+                    {
+                        window.onload = func;
+                    } else {
+                        window.onload = function()
+                        {
+                            oldonload();
+                            func();
+                        }
+                    }
+                };
+
+            
+
+            */
+
+            /*
+            解绑事件
+            可以使用removeEventListener()方法为元素解绑（或解除）某个事件。解绑事件与绑定事件是相反的操作。
+            obj.removeEventListener(type , fn , false);
+            对于removeEventListener()方法来说，fn必须是一个函数名，而不能是一个函数。
+
+            */
+
+                var oDiv = document.getElementById('content');
+                var oBtn1 = document.getElementById('btn1');
+                oDiv.addEventListener('click', changeColor, false);
+                oBtn1.addEventListener('click', function()
+                {
+                    oDiv.removeEventListener('click', changeColor, false);
+                }, false);
+
+                function changeColor(){
+                    this.style.color = 'hotpink';
+                };
+
+                //如果你想要使用removeEventListener()方法来解除一个事件，那么当初使用addEventListener()添加事件的时候，就一定要用定义函数的形，不能使用匿名函数。
+                //removeEventListener()只可以解除“事件监听器”添加的事件，而无法解除“事件处理器”添加的事件。如果想要解除“事件处理器”添加的事件，我们可以使用obj.事件名 =null;来实现
+                
+                var oDiv2 = document.getElementById('content2');
+                var oBtn2 = document.getElementById('btn2');
+
+                oDiv2.onclick = changeColor;
+                
+                oBtn2.addEventListener('click', function()
+                {
+                    oDiv2.onclick = null;
+                }, false);
+
+                function changeColor()
+                {
+                    this.style.color = 'hotpink';
+                };
+
+                //一般情况下我们都是添加完事件就算了，没必要去解除事件啊！
+                //其实大多数情况确实如此，但是不少情况下是必须要解除事件。
+
+                var oBtn3 = document.getElementById('btn3');
+                oBtn3.addEventListener('click', myalert, false);
+
+                function myalert()
+                {
+                    alert('nice!');
+                    oBtn3.removeEventListener('click', myalert, false);
+                };
+                //在实际开发中，像拖拽效果，我们在onmouseup事件中就必须要解除onmousemove事件。
+
+            };
+ 
+        </script>
+    </head>
+    <body>
+        <h3>事件进阶：事件监听器</h3>
+
+        <input type="button" id="btn" value="按钮">
+
+        <p id="content">事件解绑</p>
+        <input type="button" id="btn1" value="事件解绑">
+
+        <p id="content2">事件解绑</p>
+        <input type="button" id="btn2" value="事件解绑">
+
+        <br><br>
+        <input type="button" id="btn3" value="执行完解绑事件">
+
+
+   </body>
+</html>
