@@ -18,12 +18,76 @@
             ctrlKey：是否按下ctrl键
             altKey：是否按下alt键
             */
+
+
+            window.onload = function()
+            {
+                //可以使用event对象的type属性来获取事件的类型。
+
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function(e)
+                {
+                    alert(e.type);
+                };
+
+                //想要获取按下了键盘中的哪个键，可以使用event对象的keyCode属性来获取。
+                //如果是Shift、Ctrl和Alt这三个键，不需要通过keyCode属性来获取，而是可以直接通过shiftKey、ctrlKey和altKey这三个属性来获取
+
+                document.onkeydown = function(e)
+                {
+                    if (e.shiftKey || e.altKey || e.ctrlKey)
+                    {
+                        alert('已禁用shift、alt、ctrl键');
+                    }
+                };
+
+                //获取上下左右方向键
+                var oSpan = document.getElementsByTagName('span')[0];
+                window.addEventListener('keydown', function(e)
+                {
+                    if (e.keyCode == 38 ||e.keyCode == 87)
+                    {
+                        oSpan.innerHTML = '上';
+                    } else if (e.keyCode == 39 || e.keyCode == 68)
+                    {
+                        oSpan.innerHTML = '右';
+                    } else if (e.keyCode == 40 || e.keyCode == 83)
+                    {
+                        oSpan.innerHTML = '下';
+                    } else if (e.keyCode == 37 || e.keyCode == 65)
+                    {
+                        oSpan.innerHTML = '左';
+                    } else 
+                    {
+                        oSpan.innerHTML = '';
+                    }
+                }, false);
+
+                //this：在事件操作中，哪个DOM对象（元素节点）调用了this所在的函数，那么this指向的就是哪个DOM对象。
+                var oDiv = document.getElementsByTagName('div')[0];
+                oDiv.onclick = function()
+                {
+                    this.style.color = 'red';
+                };
+
+                var oDiv = document.getElementsByTagName('div')[1];
+                oDiv.onclick = changeColor;
+                function changeColor()
+                {
+                    this.style.color = 'green';
+                };
+
+            };
  
         </script>
     </head>
     <body>
         <h3>事件进阶：event对象</h3>
 
+        <input type="button" id="btn" value="获取事件类型">
+        <p>已禁用shift、alt、ctrl键</p>
+        <div>你控制的方向是：<span style="font-weight: bold;color: hotpink;"></span></div>
+        <div>this</div>
 
    </body>
 </html>
