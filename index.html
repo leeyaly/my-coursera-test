@@ -23,6 +23,10 @@
 	<li>仅查看用户名：<code>git config user.name</code></li>
 	<li>输出配置：<code>git config --global color.ui true</code> 让Git显示颜色，会让命令输出看起来更醒目。</li>
 	<li>安全配置：在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。所有配置文件可以直接<a href="https://github.com/github/gitignore" target="_blank">在线浏览</a>； 把.gitignore也提交到Git，就完成了。当然检验.gitignore的标准是git status命令是不是说working directory clean。如果某些文件无法提交，可能是.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用<code>git check-ignore</code>命令检查：<code> git check-ignore -v App.class</code></li>
+	<li>设置显示status的编码：<code>git config --global core.quotepath false</code></li>
+	<li>设置图形界面的编码：<code>git config --global gui.encoding utf-8</code></li>
+	<li>设置提交信息的编码：<code>git config --global il8n.commit.encoding utf-8</code></li>
+	<li>设置log编码：<code>git config --global il8n.logoutputencoding utf-8</code></li>
 </ol>
 
 <h3>二、GitHub仓库配置</h3>
