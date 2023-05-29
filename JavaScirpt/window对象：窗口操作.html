@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>window对象：窗口操作</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            /*
+            在JavaScript中，窗口常见的操作有两种：一种是“打开窗口”：另外一种是“关闭窗口”。
+            */
+ 
+            /*
+            在JavaScript中，我们可以使用window对象的open()方法来打开一个新窗口。
+            window.open()可以直接简写为open()，不过一般都习惯加上window前缀。
+            window.open()参数有很多，但是只有url和target这两个用得上。
+            url指的是新窗口的地址，如果url为空，则表示打开一个空白窗口。
+            target表示打开方式，它的取值跟a标签中target属性的取值是一样；常用取值有两个：_blank和_self。
+            当target为_blank（默认值）时，表示在新窗口打开；
+            当target为_self时，表示在当前窗口打开。
+
+            */
+
+            window.onload = function()
+            {
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function()
+                {
+                    window.open('https://github.com');
+                };
+
+
+                //打开空白窗口
+                //如果打开的是同一个域名下的页面或空白窗口，就可以像上面那样操作新窗口的元素或样式。
+                //但是如果打开的是另外一个域名下面的页面，是不允许操作新窗口的内容的，因为这涉及跨越权限的问题。
+                var oBtn2 = document.getElementById('btn2');
+                oBtn2.onclick = function()
+                {
+                    var opener = window.open();
+                    opener.document.write('新窗口');
+                    opener.document.body.style.backgroundColor = 'lightskyblue';
+                };
+
+
+            };
+
+ 
+        </script>
+    </head>
+    <body>
+        <h3>window对象：窗口操作</h3>
+
+        <input type="button" id="btn" value="打开新窗口">
+
+        <input type="button" id="btn2" value="打开空白窗口">
+
+   </body>
+</html>
