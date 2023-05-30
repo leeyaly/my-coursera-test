@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>window对象：定时器</title>
+
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                border: 1px solid silver;
+            }
+        </style>
+
+        <script>
+            /*
+            所谓的定时器，指的是每隔一段时间就执行一次代码。在JavaScript中，对于定时器的实现，有以下两组方法：
+            setTimeout()和clearTimeout()
+            setInterval和clearInterval()
+
+            setTimeout(code, time);
+            参数code可以是一段代码，可以是一个函数，也可以是一个函数名。
+            参数time是时间，单位为毫秒，表示要过多长时间才执行code中的代码。
+            */
+
+            window.onload = function()
+            {
+                //code参数是段代码，需要引起来
+                setTimeout("alert('2s啦')", 2000);
+
+                //code参数是一个函数，此时是匿名函数
+                setTimeout(function()
+                {
+                    alert('已经10s了。');
+                }, 10000);
+
+                //code参数是一个函数名
+                function alertTest()
+                {
+                    alert('这是一个命名函数');
+                };
+
+                setTimeout(alertTest, 5000);
+                //也可以这么写
+                setTimeout("alertTest()", 5000);
+
+                //clearTimeout()
+                var oBtn = document.getElementById('btn');
+                var oBtn2 = document.getElementById('btn2');
+                var timer = null;
+
+                oBtn.onclick = function()
+                {
+                    timer = setTimeout(function()
+                    {
+                        alert('2s后弹出提示');
+                    }, 2000);
+                };
+
+                oBtn2.onclick = function()
+                {
+                    clearTimeout(timer);
+                };
+
+                //可以使用setInterval()方法来重复性地调用函数，并且可以使用clearInterval()来取消执行setInterval()。
+                //setInterval(code, time)
+                //setInterval()跟setTimeout()语法是一样的，唯一不同的是：setTimeout()只执行一次，而setInterval()可以重复执行无数次
+
+                var n = 5;
+                var t = setInterval(countDown, 1000);
+
+                function countDown()
+                {
+                    if (n>0){
+                        n--;
+                        document.getElementById('num').innerHTML = n;
+                    }
+                };
+
+                //clearInterval()
+                //点击“开始”按钮后，div元素每隔一秒就会切换一次背景颜色。当我们点击“暂停”按钮，就会停止。
+
+                var oBtn_start = document.getElementById('start');
+                var oBtn_stop = document.getElementById('stop');
+                var oDiv = document.getElementsByTagName('div')[0];
+
+                var colors = ['red', 'orange', 'yellow', 'green', 'blue','purple'];
+                var mytimer = null;
+                var i = 0;
+
+                oBtn_start.onclick = function()
+                {   
+                    //每次开始前，先清除一次定时器，就不会重复新增定时器
+                    clearInterval(mytimer)
+                    mytimer = setInterval(function()
+                    {                
+                        oDiv.style.backgroundColor = colors[i];
+                        i++;
+                        i = i % colors.length;
+                    }, 1000)
+                };
+                
+                oBtn_stop.onclick = function()
+                {
+                    clearInterval(mytimer);
+                };
+
+            };
+
+
+   
+
+ 
+        </script>
+    </head>
+    <body>
+        <h3>window对象：定时器</h3>
+
+            <p>2s后弹提示</p>
+            <p>10s后弹提示</p>
+            <hr>
+            <p>点击开始，2s后弹提示；点击暂停，取消提示。</p>
+            <input type="button" id="btn" value="开始">
+            <input type="button" id="btn2" value="暂停">
+            <hr>
+            <p>倒计时：<span id="num">5</span></p>
+
+            <hr>
+            <br><br>
+            <input type="button" id="start" value="开始">
+            <input type="button" id="stop" value="暂停">
+            <br>
+            <div></div>
+   </body>
+</html>
