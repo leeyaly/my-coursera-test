@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>window对象：对话框</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            /*
+            在JavaScript中，对话框有三种：alert()、confirm()和prompt()
+            alert()对话框一般仅仅用于提示文字，在alert()中实现文本换行，用的是"\n"。
+            */
+            
+            alert('HTML\nCSS\nJavaScript');
+
+            //confirm()对话框不仅提示文字，还提供确认。
+            //如果用户点击“确定”按钮，则confirm()返回true；如果用户点击“取消”按钮，则confirm()返回false。
+            confirm('are you ok ?');
+
+            window.onload = function()
+            {
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function()
+                {
+                    if(confirm('确定前往首页吗？'))
+                    {
+                        window.location.href = 'https://github.com';
+                    } else {
+                        document.write('已取消跳转。');
+                    }
+                };
+
+                //prompt()对话框不仅提示文字，还返回一个字符串
+
+                var oBtn2 = document.getElementById('btn2');
+                oBtn2.onclick = function()
+                {
+                    var name = prompt('请输入名称');
+                    document.write('欢迎来到<strong>' + name +'</strong>');
+                };
+            };
+
+ 
+        </script>
+    </head>
+    <body>
+        <h3>window对象：对话框</h3>
+
+        <input type="button" id="btn" value="跳转">
+
+        <input type="button" id="btn2" value="获取名称">
+   </body>
+</html>
