@@ -44,6 +44,76 @@
                     opener.document.body.style.backgroundColor = 'lightskyblue';
                 };
 
+                //往新窗口输出一个页面
+                var oBtn2 = document.getElementById('btn3');
+                var opener2 = null;
+                oBtn2.onclick = function()
+                {
+                    var opener2 = window.open();
+                    var strHtml = '<!DCOTYPE html>\
+                    <html>\
+                    <head>\
+                    <title></title>\
+                    </head>\
+                    <body>\
+                    <strong>往新窗口输出一个页面</strong>\
+                    </body>\
+                    </html>';
+
+                    opener2.document.write(strHtml);
+                };
+
+
+                //操作空白窗口中的元素
+                var oBtn4 = document.getElementById('btn4');
+                var oBtn5 = document.getElementById('btn5');
+                var opener3 = null;
+
+                oBtn4.onclick = function()
+                {
+                    opener3 = window.open();
+                    var strHtml = '<!DCOTYPE html>\
+                    <html>\
+                    <head>\
+                    <title></title>\
+                    </head>\
+                    <body>\
+                    <div>往新窗口输出一个页面</div>\
+                    </body>\
+                    </html>';
+                    opener3.document.write(strHtml);
+                };
+
+                oBtn5.onclick = function()
+                {
+                    var oDiv = opener3.document.getElementsByTagName('div')[0];
+                    oDiv.style.fontWeight = 'blod';
+                    oDiv.style.color = 'hotpink';
+                };
+
+                //关闭窗口，使用window.close()来关闭一个新窗口，该方法没有参数。
+                //关闭当前窗口
+                var oBtn6 = document.getElementById('btn6');
+                oBtn6.onclick = function()
+                {
+                    window.close();
+                };
+
+                //打开一个新窗口，然后关闭
+                var oBtn7 = document.getElementById('btn7');
+                var oBtn8 = document.getElementById('btn8');
+                opener4 = null;
+
+                oBtn7.onclick = function()
+                {
+                    opener4 = window.open('https://github.com');
+                };
+
+                oBtn8.onclick = function()
+                {
+                    opener4.close();
+                };
+
 
             };
 
@@ -56,6 +126,23 @@
         <input type="button" id="btn" value="打开新窗口">
 
         <input type="button" id="btn2" value="打开空白窗口">
+
+        <input type="button" id="btn3" value="打开新窗口(往新窗口输出一个页面)">
+
+        <hr>
+
+        <input type="button" id="btn4" value="打开新窗口">
+
+        <input type="button" id="btn5" value="操作新窗口">
+
+        <hr>
+
+        <input type="button" id="btn6" value="关闭当前窗口">
+
+        <hr>
+
+        <input type="button" id="btn7" value="打开新窗口">
+        <input type="button" id="btn8" value="关闭新窗口">
 
    </body>
 </html>
