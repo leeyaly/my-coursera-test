@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>window对象：location对象</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            /*
+            在JavaScript中，可以使用window对象下的location子对象来操作当前窗口的URL。
+            所谓URL，指的就是页面地址。对于location对象，需要重点掌握以下三个属性：
+            href：当前页面地址
+            search：当前页面地址"?"后面的内容
+            hash：当前页面地址"#"后面的内容
+            */
+
+            //获取当前页面地址
+            //var url = window.location.href;
+            //document.write('当前页面地址是：' + url);
+
+            //设置当前页面地址
+            window.onload = function()
+            {
+                var oBtn = document.getElementById('btn');
+                oBtn.onclick = function()
+                {
+                    window.location.href = 'http://localhost:3000/my-coursera-test/JavaScirpt';
+                };
+
+                //定时跳转
+                //setTimeout(function(){
+                //    window.location.href = "http://localhost:3000/my-coursera-test/JavaScirpt";
+                //}, 2000);
+
+                
+                
+            };
+
+            //在JavaScript中，可以使用location对象的search属性来获取和设置当前页面地址“？”后面的内容。
+            document.write(window.location.search);
+
+            //在JavaScript中，可以使用location对象的hash属性来获取和设置当前页面地址#后面的内容。#一般用于锚点链接
+            document.write(window.location.hash);
+
+
+ 
+        </script>
+    </head>
+    <body>
+        <h3>window对象：location对象</h3>
+
+        <input type="button" id="btn" value="回到上一页">
+   </body>
+</html>
