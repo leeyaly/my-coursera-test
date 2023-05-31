@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>window对象：navigator对象</title>
+
+        <style>
+
+        </style>
+
+        <script>
+            /*
+            在JavaScript中，可以使用window对象下的子对象navigator来获取浏览器的类型。
+            语法：window.navigator.userAgent
+            */
+            if (window.navigator.userAgent.indexOf('MSIE') != -1)
+            {
+                document.write('这是IE');
+            } else if (window.navigator.userAgent.indexOf('Chrome') != -1)
+            {
+                document.write('这是Chrome');
+            } else if (window.navigator.userAgent.indexOf('Firefox') != -1)
+            {
+                document.write('这是Firefox');
+            }
+
+            //indexOf()用于找出“某个字符串”在字符串中首次出现的位置，如果找不到就返回-1。
+            
+
+ 
+        </script>
+    </head>
+    <body>
+        <h3>window对象：navigator对象</h3>
+
+   </body>
+</html>
